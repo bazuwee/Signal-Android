@@ -198,8 +198,6 @@
   <string name="ConversationItem_this_message_was_deleted">Meldinga er sletta.</string>
   <string name="ConversationItem_you_deleted_this_message">Du har sletta denne meldinga.</string>
   <!--ConversationActivity-->
-  <string name="ConversationActivity_reset_secure_session_question">Vil du tilbakestilla sikker økt?</string>
-  <string name="ConversationActivity_this_may_help_if_youre_having_encryption_problems">Dette kan hjelpa viss du har krypteringsproblem med samtalen. Meldingane dine vert ikkje fjerna.</string>
   <string name="ConversationActivity_reset">Tilbakestill</string>
   <string name="ConversationActivity_add_attachment">Legg til vedlegg</string>
   <string name="ConversationActivity_select_contact_info">Vel kontaktinformasjon</string>
@@ -313,6 +311,11 @@ Viss kontoen din har lenka einingar, så vil nye notat bli synkroniserte.</strin
   <string name="ConversationFragment__tap_to_review">Trykk for å sjå gjennom</string>
   <string name="ConversationFragment__review_requests_carefully">Sjå nøye gjennom førespurnader</string>
   <string name="ConversationFragment__signal_found_another_contact_with_the_same_name">Signal fann ein annan kontakt med det same namnet.</string>
+  <string name="ConversationFragment_contact_us">Ta kontakt</string>
+  <string name="ConversationFragment_verify">Stadfest</string>
+  <string name="ConversationFragment_not_now">Ikkje no</string>
+  <string name="ConversationFragment_your_safety_number_with_s_changed">Tryggleiksnummeret ditt med %s har endra seg.</string>
+  <string name="ConversationFragment_your_safety_number_with_s_changed_likey_because_they_reinstalled_signal">Tryggleiksnummeret ditt med %s har endra seg; dei har kanskje installert Signal på nytt eller fått ny mobil. Trykk «Stadfest» om du vil godkjenna det nye tryggleiksnummeret. Dette er valfritt.</string>
   <!--ConversationListActivity-->
   <string name="ConversationListActivity_there_is_no_browser_installed_on_your_device">Denne eininga har ingen nettlesar installert.</string>
   <!--ConversationListFragment-->
@@ -395,6 +398,9 @@ Viss kontoen din har lenka einingar, så vil nye notat bli synkroniserte.</strin
   <string name="DateUtils_minutes_ago">%dm</string>
   <string name="DateUtils_today">I dag</string>
   <string name="DateUtils_yesterday">I går</string>
+  <!--DecryptionFailedDialog-->
+  <string name="DecryptionFailedDialog_chat_session_refreshed">Samtaleøkta er oppfriska</string>
+  <string name="DecryptionFailedDialog_signal_uses_end_to_end_encryption">Signal bruker ende-til-ende-kryptering og må av og til oppfriska samtaleøkta. Dette påverkar ikkje tryggleiken til samtalen, men du kan ha gått glipp av ei melding frå denne kontakten, og må kanskje spørja dei om å senda ho på nytt.</string>
   <!--DeliveryStatus-->
   <string name="DeliveryStatus_sending">Sendar</string>
   <string name="DeliveryStatus_sent">Sendt</string>
@@ -604,6 +610,7 @@ Dei er invitert inn, og ser inga gruppemeldingar før dei godtek.</string>
   <string name="AddGroupDetailsFragment__create_group">Lag gruppe</string>
   <string name="AddGroupDetailsFragment__create">Opprett</string>
   <string name="AddGroupDetailsFragment__members">Medlemmar</string>
+  <string name="AddGroupDetailsFragment__you_can_add_or_invite_friends_after_creating_this_group">Du kan legga til eller invitera vennar etter at du har oppretta denne gruppa.</string>
   <string name="AddGroupDetailsFragment__group_name_required">Gruppenamn (krevst)</string>
   <string name="AddGroupDetailsFragment__group_name_optional">Gruppenamn (valfritt)</string>
   <string name="AddGroupDetailsFragment__this_field_is_required">Dette feltet er påkravd.</string>
@@ -772,6 +779,15 @@ Dei er invitert inn, og ser inga gruppemeldingar før dei godtek.</string>
   <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_signal">Oppdater Signal</string>
   <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_linked_device_message">Ei eller fleire av dei lenka einingane dine køyrer ei utgåve av Signal som ikkje støtter gruppelenker. Oppdater Signal på dei lenka einingane dine for å bli med i gruppa.</string>
   <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_group_link_is_not_valid">Gruppelenka er ugyldig</string>
+  <!--GroupInviteLinkEnableAndShareBottomSheetDialogFragment-->
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_invite_friends">Inviter vennar</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_share_a_link_with_friends_to_let_them_quickly_join_this_group">Del ei lenke med vennar for å la dei enkelt bli med i gruppa.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_enable_and_share_link">Skru på og del lenke</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_share_link">Del lenke</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_unable_to_enable_group_link_please_try_again_later">Klarte ikkje skru på gruppelenka. Prøv igjen seinare.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_encountered_a_network_error">Fekk ein nettverksfeil.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_you_dont_have_the_right_to_enable_group_link">Du har ikkje rett til å skru på gruppelenka. Spør ein administrator.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_you_are_not_currently_a_member_of_the_group">Du er ikkje medlem i gruppa no.</string>
   <!--GV2 Request confirmation dialog-->
   <string name="RequestConfirmationDialog_add_s_to_the_group">Legg til «%1$s» i gruppa?</string>
   <string name="RequestConfirmationDialog_deny_request_from_s">Avslå førespurnad frå «%1$s»?</string>
@@ -869,6 +885,10 @@ Dei er invitert inn, og ser inga gruppemeldingar før dei godtek.</string>
   <string name="Megaphones_verify_your_signal_pin">Godkjenn Signal-PIN-koden din</string>
   <string name="Megaphones_well_occasionally_ask_you_to_verify_your_pin">Me vil innimellom be deg om å stadfesta PIN-koden din slik at du hugsar han.</string>
   <string name="Megaphones_verify_pin">Stadfest PIN-kode</string>
+  <string name="Megaphones_get_started">Kom i gang</string>
+  <string name="Megaphones_new_group">Ny gruppe</string>
+  <string name="Megaphones_invite_friends">Inviter vennar</string>
+  <string name="Megaphones_use_sms">Bruk SMS</string>
   <!--NotificationBarManager-->
   <string name="NotificationBarManager_signal_call_in_progress">Signal-samtale i gang</string>
   <string name="NotificationBarManager__establishing_signal_call">Set opp Signal-anrop</string>
@@ -924,6 +944,7 @@ Dei er invitert inn, og ser inga gruppemeldingar før dei godtek.</string>
   <string name="MessageRecord_disappearing_message_time_set_to_s">Nedtellinga for forsvinnande meldingar er stilt til %1$s.</string>
   <string name="MessageRecord_this_group_was_updated_to_a_new_group">Denne gruppa blei oppgradert til ei Ny gruppe.</string>
   <string name="MessageRecord_you_couldnt_be_added_to_the_new_group_and_have_been_invited_to_join">Du er ikkje lagt til i den Nye gruppa, men er invitert til å bli med.</string>
+  <string name="MessageRecord_chat_session_refreshed">Samtaleøkta er oppfriska</string>
   <plurals name="MessageRecord_members_couldnt_be_added_to_the_new_group_and_have_been_invited">
     <item quantity="one">Ein medlem kunne ikkje leggast til i den Nye gruppa og er invitert med.</item>
     <item quantity="other">%1$s medlemmar kunne ikkje leggast til i den Nye gruppa og er inviterte med.</item>
@@ -939,6 +960,7 @@ Dei er invitert inn, og ser inga gruppemeldingar før dei godtek.</string>
   <!--GV2 specific-->
   <string name="MessageRecord_you_created_the_group">Du oppretta gruppa.</string>
   <string name="MessageRecord_group_updated">Gruppe oppdatert.</string>
+  <string name="MessageRecord_invite_friends_to_this_group">Inviter vennar til denne gruppa med ei gruppelenke</string>
   <!--GV2 member additions-->
   <string name="MessageRecord_you_added_s">Du la til %1$s.</string>
   <string name="MessageRecord_s_added_s">%1$s la til %2$s</string>
@@ -1266,6 +1288,10 @@ telefonnummer</string>
   <string name="RegistrationActivity_invalid_number">Ugyldig nummer</string>
   <string name="RegistrationActivity_the_number_you_specified_s_is_invalid">Nummeret du
 skreiv inn (%s) er ugyldig.</string>
+  <string name="RegistrationActivity_a_verification_code_will_be_sent_to">Ein stadfestingskode blir send til: </string>
+  <string name="RegistrationActivity_you_will_receive_a_call_to_verify_this_number">Du får ei telefonoppringing for å stadfesta dette nummeret.</string>
+  <string name="RegistrationActivity_is_your_phone_number_above_correct">Er telefonnummeret ditt over rett?</string>
+  <string name="RegistrationActivity_edit_number">Rediger nummer</string>
   <string name="RegistrationActivity_missing_google_play_services">Manglar Google Play-tenester</string>
   <string name="RegistrationActivity_this_device_is_missing_google_play_services">Denne eininga manglar Google Play-tenester. Du kan likevel bruka Signal, men dette oppsettet kan føra til mindre stabilitet eller dårlegare yting.
 
@@ -1295,8 +1321,10 @@ Viss du ikkje er ein avansert brukar, ikkje køyrer ein sjølvinstallert Android
   <string name="RegistrationActivity_take_privacy_with_you_be_yourself_in_every_message">Ta personvernet ditt med deg.
 Ver deg sjølv i kvar einaste melding.</string>
   <string name="RegistrationActivity_enter_your_phone_number_to_get_started">Skriv inn telefonnummeret ditt for å komma i gang</string>
+  <string name="RegistrationActivity_enter_your_phone_number">Skriv inn telefonnummeret ditt</string>
   <string name="RegistrationActivity_you_will_receive_a_verification_code">Du vil få ei stadfestingskode. Operatøren din kan ta betalt for meldinga.</string>
   <string name="RegistrationActivity_enter_the_code_we_sent_to_s">Skriv inn koden me sende til %s</string>
+  <string name="RegistrationActivity_make_sure_your_phone_has_a_cellular_signal">Pass på at telefonen din har mobilsignal for å motta SMS eller ringa</string>
   <string name="RegistrationActivity_phone_number_description">Telefonnummer</string>
   <string name="RegistrationActivity_country_code_description">Landkode</string>
   <string name="RegistrationActivity_call">Ring</string>
@@ -1318,6 +1346,7 @@ Ver deg sjølv i kvar einaste melding.</string>
   <string name="SearchFragment_header_conversations">Samtalar</string>
   <string name="SearchFragment_header_contacts">Kontaktar</string>
   <string name="SearchFragment_header_messages">Meldingar</string>
+  <!--ShakeToReport-->
   <!--SharedContactDetailsActivity-->
   <string name="SharedContactDetailsActivity_add_to_contacts">Legg til som kontakt</string>
   <string name="SharedContactDetailsActivity_invite_to_signal">Inviter til Signal</string>
@@ -1419,6 +1448,7 @@ Mottok nøkkelutvekslingsmelding for ugyldig protokollversjon.</string>
   <string name="ThreadRecord_contact">Kontakt</string>
   <string name="ThreadRecord_file">Fil</string>
   <string name="ThreadRecord_video">Video</string>
+  <string name="ThreadRecord_chat_session_refreshed">Samtaleøkta er oppfriska</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Signal-oppdatering</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Det finst ei ny utgåve av Signal; trykk for å oppdatera</string>
@@ -1441,6 +1471,10 @@ Mottok nøkkelutvekslingsmelding for ugyldig protokollversjon.</string>
   <string name="UsernameEditFragment_username_is_invalid">Brukarnamnet er ugyldig.</string>
   <string name="UsernameEditFragment_usernames_must_be_between_a_and_b_characters">Brukarnamn må vera mellom %1$d og %2$d teikn lange.</string>
   <string name="UsernameEditFragment_usernames_on_signal_are_optional">Brukarnamn er valfrie på Signal. Viss du vil laga eit brukarnamn, så kan andre Signal-brukarar finna deg med dette og kontakta deg utan å kjenna til telefonnummeret ditt.</string>
+  <plurals name="UserNotificationMigrationJob_d_contacts_are_on_signal">
+    <item quantity="one">%d kontakt er på Signal!</item>
+    <item quantity="other">%d kontaktar er på Signal!</item>
+  </plurals>
   <!--VerifyIdentityActivity-->
   <string name="VerifyIdentityActivity_your_contact_is_running_an_old_version_of_signal">Kontakten din køyrer ein gammal versjon av Signal. Ver venleg og be dei om å oppdatera før du stadfestar tryggleiksnummeret ditt.</string>
   <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Kontakten din køyrer ein nyare versjon av Signal med eit inkompatibelt QR-kodeformat. Ver venleg og oppdater for å samanlikna.</string>
@@ -1455,7 +1489,6 @@ Mottok nøkkelutvekslingsmelding for ugyldig protokollversjon.</string>
   <!--ViewOnceMessageActivity-->
   <!--AudioView-->
   <!--MessageDisplayHelper-->
-  <string name="MessageDisplayHelper_bad_encrypted_message">Dårleg kryptert melding</string>
   <string name="MessageDisplayHelper_message_encrypted_for_non_existing_session">Melding kryptert for ei økt som ikkje finst</string>
   <!--MmsMessageRecord-->
   <string name="MmsMessageRecord_bad_encrypted_mms_message">Dårleg kryptert MMS-melding</string>
@@ -1680,6 +1713,7 @@ Mottok nøkkelutvekslingsmelding for ugyldig protokollversjon.</string>
   <string name="ConversationUpdateItem_join_call">Bli med i samtalen</string>
   <string name="ConversationUpdateItem_return_to_call">Tilbake til samtalen</string>
   <string name="ConversationUpdateItem_call_is_full">Samtalen er fylt opp</string>
+  <string name="ConversationUpdateItem_invite_friends">Inviter vennar</string>
   <!--audio_view-->
   <string name="audio_view__play_pause_accessibility_description">Spel … pause</string>
   <string name="audio_view__download_accessibility_description">Last ned</string>
@@ -1954,6 +1988,8 @@ Ved registrering sender me litt kontaktinformasjon til tenaren. Informasjonen ve
   <string name="preferences__use_signal_for_viewing_and_storing_all_incoming_multimedia_messages">Bruk Signal for alle inngåande multimediemeldingar </string>
   <string name="preferences__pref_enter_sends_title">Send med linjeskift</string>
   <string name="preferences__pressing_the_enter_key_will_send_text_messages">Bruk linjeskift for å senda tekstmeldingar</string>
+  <string name="preferences__pref_use_address_book_photos">Bruk bilde frå adresseboka</string>
+  <string name="preferences__display_contact_photos_from_your_address_book_if_available">Vis kontaktbilde frå adresseboka di viss dei finst</string>
   <string name="preferences__generate_link_previews">Lag lenkesniktitt</string>
   <string name="preferences__retrieve_link_previews_from_websites_for_messages">Hent lenkesniktittar direkte frå nettstader for meldingane du sender.</string>
   <string name="preferences__choose_identity">Vel identitet</string>
@@ -2006,7 +2042,7 @@ Ved registrering sender me litt kontaktinformasjon til tenaren. Informasjonen ve
   <string name="preferences__mmsc_password">MMSC-passord</string>
   <string name="preferences__sms_delivery_reports">SMS-leveringsrapportar </string>
   <string name="preferences__request_a_delivery_report_for_each_sms_message_you_send">Be om leveringsrapport når du sender SMS</string>
-  <string name="preferences__chats">Samtalar og media</string>
+  <string name="preferences__data_and_storage">Data og lagring</string>
   <string name="preferences__storage">Lagring</string>
   <string name="preferences__conversation_length_limit">Lengdgrense for samtalar</string>
   <string name="preferences__keep_messages">Spar på meldingar</string>
@@ -2071,6 +2107,13 @@ Ved registrering sender me litt kontaktinformasjon til tenaren. Informasjonen ve
   <string name="preferences_app_protection__app_access">App-tilgang</string>
   <string name="preferences_app_protection__communication">Kommunikasjon</string>
   <string name="preferences_chats__chats">Samtalar</string>
+  <string name="preferences_data_and_storage__manage_storage">Handter lagring</string>
+  <string name="preferences_data_and_storage__calls">Samtalar</string>
+  <string name="preferences_data_and_storage__use_less_data_for_calls">Bruk mindre data for oppringingar</string>
+  <string name="preferences_data_and_storage__never">Aldri</string>
+  <string name="preferences_data_and_storage__wifi_and_cellular">Trådlaus og mobildata</string>
+  <string name="preferences_data_and_storage__cellular_only">Berre mobildata</string>
+  <string name="preference_data_and_storage__using_less_data_may_improve_calls_on_bad_networks">Mindre databruk kan forbetra samtalar på dårlege nettverk</string>
   <string name="preferences_notifications__messages">Meldingar</string>
   <string name="preferences_notifications__events">Hendingar</string>
   <string name="preferences_notifications__in_chat_sounds">Lydar i samtalar</string>
@@ -2148,7 +2191,8 @@ Du er à jour!</string>
   <!--conversation_list_fragment-->
   <string name="conversation_list_fragment__fab_content_description">Ny samtale</string>
   <string name="conversation_list_fragment__open_camera_description">Opna kamera</string>
-  <string name="conversation_list_fragment__give_your_inbox_something_to_write_home_about_get_started_by_messaging_a_friend">Gje innboksen din noko å skriva heim om. Kom i gang ved å melda med ein venn.</string>
+  <string name="conversation_list_fragment__no_chats_yet_get_started_by_messaging_a_friend">Ingen samtalar enno.
+Kom i gang ved å senda ei melding til ein venn.</string>
   <!--conversation_secure_verified-->
   <string name="conversation_secure_verified__menu_reset_secure_session">Tilbakestill sikker økt</string>
   <!--conversation_muted-->
@@ -2185,8 +2229,6 @@ Du er à jour!</string>
   <string name="verify_display_fragment_context_menu__copy_to_clipboard">Kopiera til utklippstavle</string>
   <string name="verify_display_fragment_context_menu__compare_with_clipboard">Samanlikn med utklippstavla</string>
   <!--reminder_header-->
-  <string name="reminder_header_sms_default_title">Bruk som standard SMS-program</string>
-  <string name="reminder_header_sms_default_text">Trykk for å gjera Signal til standard SMS-program.</string>
   <string name="reminder_header_sms_import_title">Importer system-SMS</string>
   <string name="reminder_header_sms_import_text">Trykk for å kopiera telefonen sin SMS-meldingar til Signal sin krypterte database.</string>
   <string name="reminder_header_push_title">Slå på Signal-meldingar og -samtalar</string>
@@ -2382,6 +2424,7 @@ Du er à jour!</string>
   <string name="BackupDialog_to_enable_backups_choose_a_folder">For å skru på reservekopiar må du velja ei mappe. Kopiar blir lagra der.</string>
   <string name="BackupDialog_choose_folder">Vel mappe</string>
   <string name="BackupDialog_copied_to_clipboard">Kopiert til utklippstavla</string>
+  <string name="BackupDialog_no_file_picker_available">Fann ingen filveljar</string>
   <string name="BackupDialog_enter_backup_passphrase_to_verify">Skriv inn passordfrasen for reservekopiane dine for å stadfesta</string>
   <string name="BackupDialog_verify">Stadfest</string>
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Du skreiv inn rett passordfrase for reservekopiane dine</string>
@@ -2553,8 +2596,9 @@ Du er à jour!</string>
   <string name="CallParticipantsListUpdatePopupWindow__s_and_s_left">%1$s og %2$s la på</string>
   <string name="CallParticipantsListUpdatePopupWindow__s_s_and_s_left">%1$s, %2$s og %3$s la på</string>
   <string name="CallParticipantsListUpdatePopupWindow__s_s_and_d_others_left">%1$s, %2$s og %3$d til la på</string>
-  <string name="CallParticipantsListUpdatePopupWindow__you_on_another_device">Du (på ei anna eining)</string>
-  <string name="CallParticipantsListUpdatePopupWindow__s_on_another_device">%1$s (på ei anna eining)</string>
+  <string name="CallParticipant__you">Du</string>
+  <string name="CallParticipant__you_on_another_device">Du (på ei anna eining)</string>
+  <string name="CallParticipant__s_on_another_device">%1$s (på ei anna eining)</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Om du slettar kontoen din vil du:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Skriv inn telefonnummeret ditt</string>
@@ -2571,5 +2615,7 @@ Du er à jour!</string>
   <string name="DeleteAccountFragment__launch_app_settings">Opna App-innstillingar</string>
   <!--DeleteAccountCountryPickerFragment-->
   <string name="DeleteAccountCountryPickerFragment__search_countries">Søk etter land</string>
+  <!--CreateGroupActivity-->
+  <string name="CreateGroupActivity__skip">Hopp over</string>
   <!--EOF-->
 </resources>

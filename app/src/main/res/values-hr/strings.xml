@@ -201,8 +201,6 @@
   <string name="ConversationItem_this_message_was_deleted">Ova poruka je izbrisana.</string>
   <string name="ConversationItem_you_deleted_this_message">Izbrisali ste ovu poruku.</string>
   <!--ConversationActivity-->
-  <string name="ConversationActivity_reset_secure_session_question">Poništi sigurnu sesiju?</string>
-  <string name="ConversationActivity_this_may_help_if_youre_having_encryption_problems">Ovo može pomoći ako imate problema s šifriranjem u ovom razgovoru. Vaše će se poruke čuvati.</string>
   <string name="ConversationActivity_reset">Poništi</string>
   <string name="ConversationActivity_add_attachment">Dodaj privitak</string>
   <string name="ConversationActivity_select_contact_info">Odaberite informacije o kontaktu</string>
@@ -322,6 +320,11 @@
   <string name="ConversationFragment__tap_to_review">Pritisnite za pregled</string>
   <string name="ConversationFragment__review_requests_carefully">Pažljivo pregledajte zahtjeve</string>
   <string name="ConversationFragment__signal_found_another_contact_with_the_same_name">Signal je pronašao drugi kontakt s istim imenom.</string>
+  <string name="ConversationFragment_contact_us">Kontaktirajte nas</string>
+  <string name="ConversationFragment_verify">Potvrdi</string>
+  <string name="ConversationFragment_not_now">Ne sada</string>
+  <string name="ConversationFragment_your_safety_number_with_s_changed">Vaš sigurnosni broj s %s je promijenjen</string>
+  <string name="ConversationFragment_your_safety_number_with_s_changed_likey_because_they_reinstalled_signal">Vaš sigurnosni broj s %s je promijenjen, vjerojatno zato što su ponovo instalirali Signal ili promijenili uređaje. Pritisnite Potvrdi da biste potvrdili novi sigurnosni broj. Ovo nije obavezno.</string>
   <!--ConversationListActivity-->
   <string name="ConversationListActivity_there_is_no_browser_installed_on_your_device">Na vašem uređaju nije instaliran preglednik.</string>
   <!--ConversationListFragment-->
@@ -408,6 +411,9 @@
   <string name="DateUtils_minutes_ago">%dm</string>
   <string name="DateUtils_today">Danas</string>
   <string name="DateUtils_yesterday">Jučer</string>
+  <!--DecryptionFailedDialog-->
+  <string name="DecryptionFailedDialog_chat_session_refreshed">Sesija razgovora je osvježena</string>
+  <string name="DecryptionFailedDialog_signal_uses_end_to_end_encryption">Signal koristi end-to-end šifriranje i možda će ponekad trebati osvježiti sesiju razgovora. To ne utječe na sigurnost vašeg razgovora, ali ste možda propustili poruku od ovog kontakta i možete zatražiti da je ponovno pošalje.</string>
   <!--DeliveryStatus-->
   <string name="DeliveryStatus_sending">Slanje</string>
   <string name="DeliveryStatus_sent">Poslano</string>
@@ -630,6 +636,7 @@
   <string name="AddGroupDetailsFragment__create_group">Stvori grupu</string>
   <string name="AddGroupDetailsFragment__create">Stvori</string>
   <string name="AddGroupDetailsFragment__members">Članovi</string>
+  <string name="AddGroupDetailsFragment__you_can_add_or_invite_friends_after_creating_this_group">Nakon stvaranja ove grupe, možete dodati ili pozvati prijatelje.</string>
   <string name="AddGroupDetailsFragment__group_name_required">Naziv grupe (obavezno)</string>
   <string name="AddGroupDetailsFragment__group_name_optional">Naziv grupe (neobavezno)</string>
   <string name="AddGroupDetailsFragment__this_field_is_required">Ovo polje je obavezno.</string>
@@ -808,6 +815,15 @@
   <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_signal">Ažuriraj Signal</string>
   <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_linked_device_message">Na jednom ili više povezanih uređaja pokrenuta je verzija Signala koja ne podržava poveznice grupe. Ažurirajte Signal na povezanim uređajima da biste se pridružili ovoj grupi.</string>
   <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_group_link_is_not_valid">Poveznica grupe je nevažeća</string>
+  <!--GroupInviteLinkEnableAndShareBottomSheetDialogFragment-->
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_invite_friends">Pozovi prijatelje</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_share_a_link_with_friends_to_let_them_quickly_join_this_group">Podijelite poveznicu s prijateljima kako bi se brzo pridružili ovoj grupi.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_enable_and_share_link">Omogući i podijeli poveznicu</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_share_link">Podijeli poveznicu</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_unable_to_enable_group_link_please_try_again_later">Nije moguće omogućiti poveznicu grupe. Molimo pokušajte ponovo kasnije</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_encountered_a_network_error">Došlo je do mrežne pogreške.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_you_dont_have_the_right_to_enable_group_link">Nemate prava omogućiti poveznicu grupe. Molimo pitajte administratora.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_you_are_not_currently_a_member_of_the_group">Trenutno niste član grupe.</string>
   <!--GV2 Request confirmation dialog-->
   <string name="RequestConfirmationDialog_add_s_to_the_group">Dodaj \"%1$s\" u grupu?</string>
   <string name="RequestConfirmationDialog_deny_request_from_s">Odbij zahtjev od “%1$s”?</string>
@@ -911,6 +927,10 @@
   <string name="Megaphones_verify_your_signal_pin">Potvrdite svoj Signal PIN</string>
   <string name="Megaphones_well_occasionally_ask_you_to_verify_your_pin">Povremeno ćemo zatražiti da potvrdite svoj PIN kako biste ga zapamtili.</string>
   <string name="Megaphones_verify_pin">Potvrdite PIN</string>
+  <string name="Megaphones_get_started">Započnite</string>
+  <string name="Megaphones_new_group">Nova grupa</string>
+  <string name="Megaphones_invite_friends">Pozovi prijatelje</string>
+  <string name="Megaphones_use_sms">Koristi SMS</string>
   <!--NotificationBarManager-->
   <string name="NotificationBarManager_signal_call_in_progress">Signal poziv u tijeku</string>
   <string name="NotificationBarManager__establishing_signal_call">Uspostavljanje Signal poziva</string>
@@ -967,6 +987,7 @@
   <string name="MessageRecord_disappearing_message_time_set_to_s">Postavljeno je da poruke nestaju za %1$s.</string>
   <string name="MessageRecord_this_group_was_updated_to_a_new_group">Ova grupa je ažurirana u Novu grupu.</string>
   <string name="MessageRecord_you_couldnt_be_added_to_the_new_group_and_have_been_invited_to_join">Ne možete biti dodani u Novu grupu, ali ste pozvani da se pridružite.</string>
+  <string name="MessageRecord_chat_session_refreshed">Sesija razgovora je osvježena</string>
   <plurals name="MessageRecord_members_couldnt_be_added_to_the_new_group_and_have_been_invited">
     <item quantity="one">Nije moguće dodati člana u Novu grupu, ali je pozvan je da se pridruži</item>
     <item quantity="few">%1$s člana nije moguće dodati u Novu grupu i pozvani su da se pridruže.</item>
@@ -984,6 +1005,7 @@
   <!--GV2 specific-->
   <string name="MessageRecord_you_created_the_group">Stvorili ste grupu.</string>
   <string name="MessageRecord_group_updated">Grupa je ažurirana.</string>
+  <string name="MessageRecord_invite_friends_to_this_group">Pozovite prijatelje u ovu grupu putem poveznice grupe</string>
   <!--GV2 member additions-->
   <string name="MessageRecord_you_added_s">Dodali ste %1$s.</string>
   <string name="MessageRecord_s_added_s">%1$s je dodao/la %2$s.</string>
@@ -1058,11 +1080,11 @@
   <string name="MessageRecord_the_group_group_avatar_has_been_changed">Slika grupe je promijenjena.</string>
   <!--GV2 attribute access level change-->
   <string name="MessageRecord_you_changed_who_can_edit_group_info_to_s">Promijenili ste tko sve može urediti detalje o grupi na \"%1$s\".</string>
-  <string name="MessageRecord_s_changed_who_can_edit_group_info_to_s">%1$s je promijenio tko sve može uređivati detalje o grupi na \"%2$s\".</string>
+  <string name="MessageRecord_s_changed_who_can_edit_group_info_to_s">%1$s je promijenio/la tko sve može uređivati detalje o grupi na \"%2$s\".</string>
   <string name="MessageRecord_who_can_edit_group_info_has_been_changed_to_s">Promijenjeno je tko sve može urediti detalje o grupi na \"%1$s\".</string>
   <!--GV2 membership access level change-->
   <string name="MessageRecord_you_changed_who_can_edit_group_membership_to_s">Promijenili ste tko može uređivati članstvo grupe na \"%1$s\".</string>
-  <string name="MessageRecord_s_changed_who_can_edit_group_membership_to_s">%1$s je promijenio tko može uređivati članstvo grupe na \"%2$s\".</string>
+  <string name="MessageRecord_s_changed_who_can_edit_group_membership_to_s">%1$s je promijenio/la tko može uređivati članstvo grupe na \"%2$s\".</string>
   <string name="MessageRecord_who_can_edit_group_membership_has_been_changed_to_s">Promijenjeno je tko sve može urediti članstvo grupe na \"%1$s\".</string>
   <!--GV2 group link invite access level change-->
   <string name="MessageRecord_you_turned_on_the_group_link_with_admin_approval_off">Isključili ste grupnu poveznicu s administratorskim odobrenjem.</string>
@@ -1324,6 +1346,10 @@ broj telefona</string>
   <string name="RegistrationActivity_invalid_number">Nevažeći broj</string>
   <string name="RegistrationActivity_the_number_you_specified_s_is_invalid">Broj koji ste unijeli
 (%s) je nevažeći.</string>
+  <string name="RegistrationActivity_a_verification_code_will_be_sent_to">Potvrdni kôd će biti poslan na:</string>
+  <string name="RegistrationActivity_you_will_receive_a_call_to_verify_this_number">Primiti će te poziv za potvrdu ovog broja telefona.</string>
+  <string name="RegistrationActivity_is_your_phone_number_above_correct">Je li točan vaš navedeni broj telefona?</string>
+  <string name="RegistrationActivity_edit_number">Uredi broj</string>
   <string name="RegistrationActivity_missing_google_play_services">Google Play Services nije dostupno</string>
   <string name="RegistrationActivity_this_device_is_missing_google_play_services">Ovom uređaju nedostaje Google Play Services. I dalje možete koristiti Signal, ali ova konfiguracija može rezultirati smanjenom pouzdanošću ili performansama.\n\nAko niste napredni korisnik, ili ne koristite prilagođeni Android ROM ili vjerujete da ovo greškom vidite, kontaktirajte nas na support@signal.org za pomoć u rješavanju problema.</string>
   <string name="RegistrationActivity_i_understand">Shvaćam</string>
@@ -1351,8 +1377,10 @@ broj telefona</string>
   <string name="RegistrationActivity_continue_last_attempt">Nastavi (posljednji pokušaj!)</string>
   <string name="RegistrationActivity_take_privacy_with_you_be_yourself_in_every_message">Ponesite privatnost sa sobom.\nBudite svoji u svakoj poruci.</string>
   <string name="RegistrationActivity_enter_your_phone_number_to_get_started">Unesite broj telefona za početak</string>
+  <string name="RegistrationActivity_enter_your_phone_number">Unesite vaš broj telefona</string>
   <string name="RegistrationActivity_you_will_receive_a_verification_code">Primiti će te potvrdni kôd. Mogu se primijeniti naknade operatera.</string>
   <string name="RegistrationActivity_enter_the_code_we_sent_to_s">Unesite kôd koji smo poslali na %s</string>
+  <string name="RegistrationActivity_make_sure_your_phone_has_a_cellular_signal">Provjerite ima li vaš telefon uspostavljenu mobilnu vezu za primanje SMS-a ili poziva</string>
   <string name="RegistrationActivity_phone_number_description">Broj telefona</string>
   <string name="RegistrationActivity_country_code_description">Kôd države</string>
   <string name="RegistrationActivity_call">Nazovi</string>
@@ -1374,6 +1402,7 @@ broj telefona</string>
   <string name="SearchFragment_header_conversations">Razgovori</string>
   <string name="SearchFragment_header_contacts">Kontakti</string>
   <string name="SearchFragment_header_messages">Poruke</string>
+  <!--ShakeToReport-->
   <!--SharedContactDetailsActivity-->
   <string name="SharedContactDetailsActivity_add_to_contacts">Dodaj u kontakte</string>
   <string name="SharedContactDetailsActivity_invite_to_signal">Pozovi u Signal</string>
@@ -1477,6 +1506,7 @@ broj telefona</string>
   <string name="ThreadRecord_contact">Kontakt</string>
   <string name="ThreadRecord_file">Datoteka</string>
   <string name="ThreadRecord_video">Video</string>
+  <string name="ThreadRecord_chat_session_refreshed">Sesija razgovora je osvježena</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Signal ažuriranje</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Dostupna je nova verzija Signala, pritisnite za ažurirati</string>
@@ -1499,6 +1529,11 @@ broj telefona</string>
   <string name="UsernameEditFragment_username_is_invalid">Korisničko ime je nevažeće.</string>
   <string name="UsernameEditFragment_usernames_must_be_between_a_and_b_characters">Korisnička imena moraju imati između %1$d i %2$d znakova.</string>
   <string name="UsernameEditFragment_usernames_on_signal_are_optional">Korisnička imena na Signalu su neobavezna. Ako odlučite stvoriti korisničko ime, drugi korisnici Signala će vas moći pronaći prema tom korisničkom imenu i kontaktirati vas bez poznavanja vašeg broja telefona.</string>
+  <plurals name="UserNotificationMigrationJob_d_contacts_are_on_signal">
+    <item quantity="one">%d kontakt je na Signalu!</item>
+    <item quantity="few">%d kontakta su na Signalu!</item>
+    <item quantity="other">%d kontakata je na Signalu!</item>
+  </plurals>
   <!--VerifyIdentityActivity-->
   <string name="VerifyIdentityActivity_your_contact_is_running_an_old_version_of_signal">Vaš kontakt koristi staru verziju Signala. Zamolite ih da ažuriraju aplikaciju prije provjere sigurnosnog broja.</string>
   <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Vaš kontakt koristi noviju verziju Signala s nekompatibilnim formatom QR kôda. Molimo ažurirajte za usporedbu.</string>
@@ -1513,7 +1548,6 @@ broj telefona</string>
   <!--ViewOnceMessageActivity-->
   <!--AudioView-->
   <!--MessageDisplayHelper-->
-  <string name="MessageDisplayHelper_bad_encrypted_message">Loše šifrirana poruka</string>
   <string name="MessageDisplayHelper_message_encrypted_for_non_existing_session">Poruka je šifrirana za nepostojeću sesiju</string>
   <!--MmsMessageRecord-->
   <string name="MmsMessageRecord_bad_encrypted_mms_message">Loše šifrirana MMS poruka</string>
@@ -1741,6 +1775,7 @@ broj telefona</string>
   <string name="ConversationUpdateItem_join_call">Pridruži se pozivu</string>
   <string name="ConversationUpdateItem_return_to_call">Povratak na poziv</string>
   <string name="ConversationUpdateItem_call_is_full">Poziv je pun</string>
+  <string name="ConversationUpdateItem_invite_friends">Pozovi prijatelje</string>
   <!--audio_view-->
   <string name="audio_view__play_pause_accessibility_description">Reproduciraj … Pauziraj</string>
   <string name="audio_view__download_accessibility_description">Preuzmi</string>
@@ -2022,6 +2057,8 @@ Uvezi sigurnosnu kopiju običnog teksta. Kompatibilno s \'SMSBackup And Restore\
   <string name="preferences__use_signal_for_viewing_and_storing_all_incoming_multimedia_messages">Koristi Signal za sve dolazne poruke s medijskim zapisima</string>
   <string name="preferences__pref_enter_sends_title">Tipka Enter šalje poruku</string>
   <string name="preferences__pressing_the_enter_key_will_send_text_messages">Pritiskom na tipku Enter poslat će se tekstualne poruke</string>
+  <string name="preferences__pref_use_address_book_photos">Koristi fotografije iz imenika</string>
+  <string name="preferences__display_contact_photos_from_your_address_book_if_available">Prikaži fotografije kontakata iz imenika ako su dostupne</string>
   <string name="preferences__generate_link_previews">Stvori preglede poveznica</string>
   <string name="preferences__retrieve_link_previews_from_websites_for_messages">Preuzmite preglede poveznica izravno s web stranica za poruke koje šaljete.</string>
   <string name="preferences__choose_identity">Odaberite identitet</string>
@@ -2074,7 +2111,7 @@ Uvezi sigurnosnu kopiju običnog teksta. Kompatibilno s \'SMSBackup And Restore\
   <string name="preferences__mmsc_password">MMSC lozinka</string>
   <string name="preferences__sms_delivery_reports">SMS potvrde isporuke</string>
   <string name="preferences__request_a_delivery_report_for_each_sms_message_you_send">Traži potvrdu isporuke za svaki poslani SMS</string>
-  <string name="preferences__chats">Razgovori i medijski zapisi</string>
+  <string name="preferences__data_and_storage">Mobilni podaci i prostor za pohranu</string>
   <string name="preferences__storage">Prostor za pohranu</string>
   <string name="preferences__conversation_length_limit">Maksimalna duljina razgovora</string>
   <string name="preferences__keep_messages">Zadrži poruke</string>
@@ -2139,6 +2176,13 @@ Uvezi sigurnosnu kopiju običnog teksta. Kompatibilno s \'SMSBackup And Restore\
   <string name="preferences_app_protection__app_access">Pristup aplikaciji</string>
   <string name="preferences_app_protection__communication">Komunikacija</string>
   <string name="preferences_chats__chats">Razgovori</string>
+  <string name="preferences_data_and_storage__manage_storage">Upravljanje prostorom za pohranu</string>
+  <string name="preferences_data_and_storage__calls">Pozivi</string>
+  <string name="preferences_data_and_storage__use_less_data_for_calls">Koristi manje mobilnih podataka za pozive</string>
+  <string name="preferences_data_and_storage__never">Nikada</string>
+  <string name="preferences_data_and_storage__wifi_and_cellular">Wi-Fi i mobilni podaci</string>
+  <string name="preferences_data_and_storage__cellular_only">Samo mobilni podaci</string>
+  <string name="preference_data_and_storage__using_less_data_may_improve_calls_on_bad_networks">Korištenjem manje mobilnih podataka mogu se poboljšati pozivi na lošim mrežama</string>
   <string name="preferences_notifications__messages">Poruke</string>
   <string name="preferences_notifications__events">Događaji</string>
   <string name="preferences_notifications__in_chat_sounds">Zvukovi unutar razgovora</string>
@@ -2215,7 +2259,7 @@ Uvezi sigurnosnu kopiju običnog teksta. Kompatibilno s \'SMSBackup And Restore\
   <!--conversation_list_fragment-->
   <string name="conversation_list_fragment__fab_content_description">Novi razgovor</string>
   <string name="conversation_list_fragment__open_camera_description">Otvori kameru</string>
-  <string name="conversation_list_fragment__give_your_inbox_something_to_write_home_about_get_started_by_messaging_a_friend">Stvorite nove uspomene. Započnite slanjem poruke prijateljima.</string>
+  <string name="conversation_list_fragment__no_chats_yet_get_started_by_messaging_a_friend">Još nema razgovora.\nZapočnite slanjem poruke prijatelju.</string>
   <!--conversation_secure_verified-->
   <string name="conversation_secure_verified__menu_reset_secure_session">Poništi sigurnu sesiju</string>
   <!--conversation_muted-->
@@ -2252,8 +2296,6 @@ Uvezi sigurnosnu kopiju običnog teksta. Kompatibilno s \'SMSBackup And Restore\
   <string name="verify_display_fragment_context_menu__copy_to_clipboard">Kopiraj u međuspremnik</string>
   <string name="verify_display_fragment_context_menu__compare_with_clipboard">Usporedi s međuspremnikom</string>
   <!--reminder_header-->
-  <string name="reminder_header_sms_default_title">Koristi kao zadanu SMS aplikaciju</string>
-  <string name="reminder_header_sms_default_text">Pritisnite kako biste postavili Signal kao zadanu SMS aplikaciju.</string>
   <string name="reminder_header_sms_import_title">Uvezi SMS poruke sustava</string>
   <string name="reminder_header_sms_import_text">Pritisnite za kopiranje SMS poruka na uređaju u Signalovu šifriranu bazu podataka.</string>
   <string name="reminder_header_push_title">Omogući Signal poruke i pozive</string>
@@ -2456,6 +2498,7 @@ Uvezi sigurnosnu kopiju običnog teksta. Kompatibilno s \'SMSBackup And Restore\
   <string name="BackupDialog_to_enable_backups_choose_a_folder">Da biste omogućili sigurnosne kopije, odaberite mapu. Sigurnosne kopije bit će spremljene na ovo mjesto.</string>
   <string name="BackupDialog_choose_folder">Odaberi mapu</string>
   <string name="BackupDialog_copied_to_clipboard">Kopirano u međuspremnik</string>
+  <string name="BackupDialog_no_file_picker_available">Nije dostupan alat za odabir datoteka.</string>
   <string name="BackupDialog_enter_backup_passphrase_to_verify">Unesi vašu lozinku sigurnosne kopije za provjeru</string>
   <string name="BackupDialog_verify">Potvrdi</string>
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Uspješno ste unijeli lozinku sigurnosne kopije</string>
@@ -2628,8 +2671,9 @@ Uvezi sigurnosnu kopiju običnog teksta. Kompatibilno s \'SMSBackup And Restore\
   <string name="CallParticipantsListUpdatePopupWindow__s_and_s_left">%1$s i %2$s je napustio/la</string>
   <string name="CallParticipantsListUpdatePopupWindow__s_s_and_s_left">%1$s, %2$s i %3$s je napustio/la</string>
   <string name="CallParticipantsListUpdatePopupWindow__s_s_and_d_others_left">%1$s, %2$s i %3$d osoba je napustilo</string>
-  <string name="CallParticipantsListUpdatePopupWindow__you_on_another_device">Vi (na drugom uređaju)</string>
-  <string name="CallParticipantsListUpdatePopupWindow__s_on_another_device">%1$s (na drugom uređaju)</string>
+  <string name="CallParticipant__you">Vi</string>
+  <string name="CallParticipant__you_on_another_device">Vi (na drugom uređaju)</string>
+  <string name="CallParticipant__s_on_another_device">%1$s (na drugom uređaju)</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Brisanje vašeg računa će:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Unesite vaš broj telefona</string>
@@ -2646,5 +2690,7 @@ Uvezi sigurnosnu kopiju običnog teksta. Kompatibilno s \'SMSBackup And Restore\
   <string name="DeleteAccountFragment__launch_app_settings">Otvori postavke aplikacije</string>
   <!--DeleteAccountCountryPickerFragment-->
   <string name="DeleteAccountCountryPickerFragment__search_countries">Pretraži države</string>
+  <!--CreateGroupActivity-->
+  <string name="CreateGroupActivity__skip">Preskoči</string>
   <!--EOF-->
 </resources>

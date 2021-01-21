@@ -199,8 +199,6 @@
   <string name="ConversationItem_this_message_was_deleted">Dit bericht is gewist.</string>
   <string name="ConversationItem_you_deleted_this_message">Je hebt dit bericht gewist.</string>
   <!--ConversationActivity-->
-  <string name="ConversationActivity_reset_secure_session_question">Beveiligde sessie opnieuw instellen?</string>
-  <string name="ConversationActivity_this_may_help_if_youre_having_encryption_problems">Dit kan helpen wanneer je versleutelingsproblemen hebt met dit gesprek. Je berichten blijven behouden.</string>
   <string name="ConversationActivity_reset">Opnieuw instellen</string>
   <string name="ConversationActivity_add_attachment">Bijlage toevoegen</string>
   <string name="ConversationActivity_select_contact_info">Selecteer contactinformatie</string>
@@ -313,6 +311,11 @@
   <string name="ConversationFragment__tap_to_review">Tik hier om te evalueren</string>
   <string name="ConversationFragment__review_requests_carefully">Evalueer verzoeken zorgvuldig</string>
   <string name="ConversationFragment__signal_found_another_contact_with_the_same_name">Signal heeft een ander contactpersoon gevonden met dezelfde naam.</string>
+  <string name="ConversationFragment_contact_us">Neem contact met ons op</string>
+  <string name="ConversationFragment_verify">Verifiëren</string>
+  <string name="ConversationFragment_not_now">Niet nu</string>
+  <string name="ConversationFragment_your_safety_number_with_s_changed">Je veiligheidsnummer met %s is veranderd</string>
+  <string name="ConversationFragment_your_safety_number_with_s_changed_likey_because_they_reinstalled_signal">Je veiligheidsnummer met %s is veranderd, waarschijnlijk heeft hij of zij Signal opnieuw geïnstalleerd of is hij of zij op een nieuwe telefoon overgestapt. Tik op ‘Verifiëren’ om het veiligheidsnummer na te kijken als je echt zeker wilt weten dat de beveiliging van het hoogste niveau is. Je hoeft dit niet te doen.</string>
   <!--ConversationListActivity-->
   <string name="ConversationListActivity_there_is_no_browser_installed_on_your_device">Er is geen browser op je apparaat geïnstalleerd.</string>
   <!--ConversationListFragment-->
@@ -395,6 +398,9 @@
   <string name="DateUtils_minutes_ago">%d min</string>
   <string name="DateUtils_today">Vandaag</string>
   <string name="DateUtils_yesterday">Gisteren</string>
+  <!--DecryptionFailedDialog-->
+  <string name="DecryptionFailedDialog_chat_session_refreshed">Gespreksessie vernieuwd</string>
+  <string name="DecryptionFailedDialog_signal_uses_end_to_end_encryption">Het kan soms nodig zijn om je gespreksessie te vernieuwen. Dit heeft geen invloed op de beveiliging van je gesprek, maar het is mogelijk dat je een bericht van je contactpersoon hebt gemist. Vraag je contactpersoon eventueel om zijn of haar meest recente berichten opnieuw te zenden.</string>
   <!--DeliveryStatus-->
   <string name="DeliveryStatus_sending">Aan het verzenden</string>
   <string name="DeliveryStatus_sent">Verzonden</string>
@@ -601,6 +607,7 @@
   <string name="AddGroupDetailsFragment__create_group">Groep aanmaken</string>
   <string name="AddGroupDetailsFragment__create">Aanmaken</string>
   <string name="AddGroupDetailsFragment__members">Leden</string>
+  <string name="AddGroupDetailsFragment__you_can_add_or_invite_friends_after_creating_this_group">Je kan na het maken van deze groep kennissen uitnodigen of toevoegen.</string>
   <string name="AddGroupDetailsFragment__group_name_required">Groepsnaam (vereist)</string>
   <string name="AddGroupDetailsFragment__group_name_optional">Groepsnaam (optioneel)</string>
   <string name="AddGroupDetailsFragment__this_field_is_required">Dit veld is vereist.</string>
@@ -699,10 +706,10 @@
   <string name="ManageRecipientActivity_add_to_a_group">Aan een groep toevoegen</string>
   <string name="ManageRecipientActivity_view_all_groups">Alle groepen weergeven</string>
   <string name="ManageRecipientActivity_see_all">Alles weergeven</string>
-  <string name="ManageRecipientActivity_no_groups_in_common">Geen overeenkomstige groepen</string>
+  <string name="ManageRecipientActivity_no_groups_in_common">Geen gemeenschappelijke groepen</string>
   <plurals name="ManageRecipientActivity_d_groups_in_common">
-    <item quantity="one">%d overeenkomstige groep</item>
-    <item quantity="other">%d overeenkomstige groepen</item>
+    <item quantity="one">%d gemeenschappelijke groep</item>
+    <item quantity="other">%d gemeenschappelijke groepen</item>
   </plurals>
   <string name="ManageRecipientActivity_edit_name_and_picture">Naam en afbeelding aanpassen</string>
   <string name="ManageRecipientActivity_message_description">Bericht</string>
@@ -769,6 +776,15 @@
   <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_signal">Signal bijwerken</string>
   <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_linked_device_message">Een of meerdere van je gekoppelde apparaten gebruikt een versie van Signal die geen groepsverwijzingen ondersteunt. Werk Signal op die apparaten bij om lid te worden van deze groep.</string>
   <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_group_link_is_not_valid">Ongeldige groepsverwijzing</string>
+  <!--GroupInviteLinkEnableAndShareBottomSheetDialogFragment-->
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_invite_friends">Kennissen uitnodigen</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_share_a_link_with_friends_to_let_them_quickly_join_this_group">Deel een groepsverwijzing met kennissen om ze gemakkelijk aan deze groep te laten deelnemen.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_enable_and_share_link">Groepsverwijzing inschakelen en delen</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_share_link">Groepsverwijzing delen</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_unable_to_enable_group_link_please_try_again_later">Kan de groepsverwijzing niet inschakelen, probeer het later opnieuw.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_encountered_a_network_error">Er is een netwerkfout opgetreden.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_you_dont_have_the_right_to_enable_group_link">Je hebt geen recht om groepsverwijzingen in te schakelen, vraag dit aan een beheerder.</string>
+  <string name="GroupInviteLinkEnableAndShareBottomSheetDialogFragment_you_are_not_currently_a_member_of_the_group">Je bent momenteel geen lid van deze groep.</string>
   <!--GV2 Request confirmation dialog-->
   <string name="RequestConfirmationDialog_add_s_to_the_group">“%1$s” toevoegen aan de groep?</string>
   <string name="RequestConfirmationDialog_deny_request_from_s">Verzoek van “%1$s” afwijzen?</string>
@@ -866,6 +882,10 @@
   <string name="Megaphones_verify_your_signal_pin">Weet je je Signal-pincode nog?</string>
   <string name="Megaphones_well_occasionally_ask_you_to_verify_your_pin">Signal vraagt je af en toe of je je pincode nog weet, zodat je je pincode goed onthoudt.</string>
   <string name="Megaphones_verify_pin">Pincode bevestigen</string>
+  <string name="Megaphones_get_started">Maak een begin</string>
+  <string name="Megaphones_new_group">Nieuwe groep</string>
+  <string name="Megaphones_invite_friends">Kennissen uitnodigen</string>
+  <string name="Megaphones_use_sms">Sms gebruiken</string>
   <!--NotificationBarManager-->
   <string name="NotificationBarManager_signal_call_in_progress">Signal-oproep aan de gang</string>
   <string name="NotificationBarManager__establishing_signal_call">Signal-oproep aan het opzetten</string>
@@ -921,6 +941,7 @@
   <string name="MessageRecord_disappearing_message_time_set_to_s">De timer voor verlopende berichten is op %1$s ingesteld.</string>
   <string name="MessageRecord_this_group_was_updated_to_a_new_group">Deze groep is omgezet in een nieuwe groep.</string>
   <string name="MessageRecord_you_couldnt_be_added_to_the_new_group_and_have_been_invited_to_join">Je kon niet toegevoegd worden tot de nieuwe groep en je hebt daarom een uitnodiging gekregen om opnieuw lid te worden.</string>
+  <string name="MessageRecord_chat_session_refreshed">Gespreksessie vernieuwd</string>
   <plurals name="MessageRecord_members_couldnt_be_added_to_the_new_group_and_have_been_invited">
     <item quantity="one">Een groepslid kon niet direct toegevoegd worden tot de nieuwe groep en heeft daarom een uitnodiging gekregen om toe te treden.</item>
     <item quantity="other">%1$s groepsleden konden niet direct toegevoegd worden tot de nieuwe groep en hebben daarom een uitnodiging gekregen om toe te treden.</item>
@@ -936,6 +957,7 @@
   <!--GV2 specific-->
   <string name="MessageRecord_you_created_the_group">Je hebt de groep aangemaakt.</string>
   <string name="MessageRecord_group_updated">Groep aangepast.</string>
+  <string name="MessageRecord_invite_friends_to_this_group">Nodig vrienden en kennissen uit voor deze groep via een groepsverwijzing</string>
   <!--GV2 member additions-->
   <string name="MessageRecord_you_added_s">Je hebt %1$s aan de groep toegevoegd.</string>
   <string name="MessageRecord_s_added_s">%1$s heeft %2$s toegevoegd aan de groep.</string>
@@ -1265,6 +1287,10 @@
   <string name="RegistrationActivity_the_number_you_specified_s_is_invalid">Het nummer dat je hebt
         ingevoerd (%s) is ongeldig.
     </string>
+  <string name="RegistrationActivity_a_verification_code_will_be_sent_to">Een verificatiecode wordt verzonden naar:</string>
+  <string name="RegistrationActivity_you_will_receive_a_call_to_verify_this_number">Je zal gebeld worden om dit telefoonnummer te verifiëren.</string>
+  <string name="RegistrationActivity_is_your_phone_number_above_correct">Is je telefoonnummer hierboven correct?</string>
+  <string name="RegistrationActivity_edit_number">Telefoonnummer wijzigen</string>
   <string name="RegistrationActivity_missing_google_play_services">De Google Play Services zijn niet aanwezig</string>
   <string name="RegistrationActivity_this_device_is_missing_google_play_services">Dit apparaat bevat geen Google Play Services. Je kunt Signal nog steeds gebruiken, maar deze configuratie kan de betrouwbaarheid en prestaties verslechteren.\n\nAls je geen gevorderde gebruiker bent, geen aangepaste ROM gebruikt of denkt dat dit bericht onterecht wordt weergegeven, neem dan contact op met support@signal.org voor hulp met probleemoplossen.</string>
   <string name="RegistrationActivity_i_understand">Ik begrijp het</string>
@@ -1293,8 +1319,10 @@ Tot slot moet Signal de telefoonstatus kunnen lezen om te voorkomen dat Signal-o
   <string name="RegistrationActivity_continue_last_attempt">Doorgaan (laatste poging!)</string>
   <string name="RegistrationActivity_take_privacy_with_you_be_yourself_in_every_message">Neem je privacy met je mee.\nWees jezelf in elk bericht.</string>
   <string name="RegistrationActivity_enter_your_phone_number_to_get_started">Voer je telefoonnummer in om te beginnen</string>
+  <string name="RegistrationActivity_enter_your_phone_number">Voer je telefoonnummer in</string>
   <string name="RegistrationActivity_you_will_receive_a_verification_code">Je zult een verificatiecode ontvangen. Providerkosten zijn mogelijk van toepassing.</string>
   <string name="RegistrationActivity_enter_the_code_we_sent_to_s">Voer de code in die we hebben verzonden naar %s</string>
+  <string name="RegistrationActivity_make_sure_your_phone_has_a_cellular_signal">Verzeker je ervan dat je telefoon netwerkbereik heeft zodat je een sms of oproep kunt ontvangen</string>
   <string name="RegistrationActivity_phone_number_description">Telefoonnummer</string>
   <string name="RegistrationActivity_country_code_description">Landcode</string>
   <string name="RegistrationActivity_call">Bellen</string>
@@ -1316,6 +1344,7 @@ Tot slot moet Signal de telefoonstatus kunnen lezen om te voorkomen dat Signal-o
   <string name="SearchFragment_header_conversations">Gesprekken</string>
   <string name="SearchFragment_header_contacts">Contacten</string>
   <string name="SearchFragment_header_messages">Berichten</string>
+  <!--ShakeToReport-->
   <!--SharedContactDetailsActivity-->
   <string name="SharedContactDetailsActivity_add_to_contacts">Aan contactenlijst toevoegen</string>
   <string name="SharedContactDetailsActivity_invite_to_signal">Uitnodigen voor Signal</string>
@@ -1419,6 +1448,7 @@ Tot slot moet Signal de telefoonstatus kunnen lezen om te voorkomen dat Signal-o
   <string name="ThreadRecord_contact">Contact­persoon</string>
   <string name="ThreadRecord_file">Bestand</string>
   <string name="ThreadRecord_video">Video</string>
+  <string name="ThreadRecord_chat_session_refreshed">Gespreksessie vernieuwd</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Nieuwe versie van Signal</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Er is een nieuwe versie van Signal beschikbaar. Tik hier om bij te werken</string>
@@ -1441,6 +1471,10 @@ Tot slot moet Signal de telefoonstatus kunnen lezen om te voorkomen dat Signal-o
   <string name="UsernameEditFragment_username_is_invalid">Gebruikersnaam is ongeldig.</string>
   <string name="UsernameEditFragment_usernames_must_be_between_a_and_b_characters">Gebruikersnamen moeten uit ten minste %1$d en maximaal %2$d karakters bestaan.</string>
   <string name="UsernameEditFragment_usernames_on_signal_are_optional">Gebruikersnamen in Signal zijn optioneel. Als je een gebruikersnaam aanmaakt zullen andere Signal gebruikers je kunnen vinden met deze naam en contact met je kunnen opnemen zonder je telefoonnummer te kennen.</string>
+  <plurals name="UserNotificationMigrationJob_d_contacts_are_on_signal">
+    <item quantity="one">%d van je contactpersonen is bereikbaar via Signal.</item>
+    <item quantity="other">%d van je contactpersonen zijn bereikbaar via Signal.</item>
+  </plurals>
   <!--VerifyIdentityActivity-->
   <string name="VerifyIdentityActivity_your_contact_is_running_an_old_version_of_signal">Deze contactpersoon gebruikt een oude versie van Signal. Vraag hem om eerst Signal bij te werken, alvorens je het veiligheidsnummer verifieert.</string>
   <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Je contact gebruikt een nieuwere versie van Signal met een incompatibel QR-codeformaat. Werk Signal bij om te vergelijken.</string>
@@ -1455,7 +1489,6 @@ Tot slot moet Signal de telefoonstatus kunnen lezen om te voorkomen dat Signal-o
   <!--ViewOnceMessageActivity-->
   <!--AudioView-->
   <!--MessageDisplayHelper-->
-  <string name="MessageDisplayHelper_bad_encrypted_message">Bericht kan niet worden ontsleuteld</string>
   <string name="MessageDisplayHelper_message_encrypted_for_non_existing_session">Fout: Dit bericht is versleuteld voor een niet-bestaande sessie</string>
   <!--MmsMessageRecord-->
   <string name="MmsMessageRecord_bad_encrypted_mms_message">Mms-bericht kan niet worden ontsleuteld</string>
@@ -1680,6 +1713,7 @@ Tot slot moet Signal de telefoonstatus kunnen lezen om te voorkomen dat Signal-o
   <string name="ConversationUpdateItem_join_call">Aan oproep deelnemen</string>
   <string name="ConversationUpdateItem_return_to_call">Naar de oproep terugkeren</string>
   <string name="ConversationUpdateItem_call_is_full">De oproep is vol</string>
+  <string name="ConversationUpdateItem_invite_friends">Kennissen uitnodigen</string>
   <!--audio_view-->
   <string name="audio_view__play_pause_accessibility_description">Afspelen … Pauzeren</string>
   <string name="audio_view__download_accessibility_description">Downloaden</string>
@@ -1954,6 +1988,8 @@ Signal zal nu toestemming vragen om je contactenlijst te lezen, om na te gaan wi
   <string name="preferences__use_signal_for_viewing_and_storing_all_incoming_multimedia_messages">Signal gebruiken voor alle inkomende multimediaberichten</string>
   <string name="preferences__pref_enter_sends_title">Enter-toets verzendt</string>
   <string name="preferences__pressing_the_enter_key_will_send_text_messages">Gebruik de Enter-toets voor het verzenden van tekstberichten</string>
+  <string name="preferences__pref_use_address_book_photos">Profielfoto uit systeemadresboek</string>
+  <string name="preferences__display_contact_photos_from_your_address_book_if_available">Gebruik indien beschikbaar de profielafbeelding uit je eigen systeemadresboek, in plaats van de profielafbeelding welke anderen voor zichzelf hebben ingesteld.</string>
   <string name="preferences__generate_link_previews">Voorbeeldafbeeldingen genereren</string>
   <string name="preferences__retrieve_link_previews_from_websites_for_messages">Sta Signal toe om voor elke verwijzing naar een website die je verzendt een voorbeeldafbeelding genereren en aan je bericht bij te voegen. Echter, als je dit inschakelt zouden websites kunnen detecteren dat je hen in je bericht vermeldt.</string>
   <string name="preferences__choose_identity">Identiteit kiezen</string>
@@ -2006,7 +2042,7 @@ Signal zal nu toestemming vragen om je contactenlijst te lezen, om na te gaan wi
   <string name="preferences__mmsc_password">MMSC-wachtwoord</string>
   <string name="preferences__sms_delivery_reports">Sms-ontvangstbevestigingen</string>
   <string name="preferences__request_a_delivery_report_for_each_sms_message_you_send">Vraag een ontvangstbevestiging voor ieder verzonden sms-bericht</string>
-  <string name="preferences__chats">Gesprekken en media</string>
+  <string name="preferences__data_and_storage">Gegevens en opslag</string>
   <string name="preferences__storage">Opslag</string>
   <string name="preferences__conversation_length_limit">Gesprekslengtelimiet</string>
   <string name="preferences__keep_messages">Berichten bewaren</string>
@@ -2071,6 +2107,13 @@ Signal zal nu toestemming vragen om je contactenlijst te lezen, om na te gaan wi
   <string name="preferences_app_protection__app_access">Toegang tot app</string>
   <string name="preferences_app_protection__communication">Communicatie</string>
   <string name="preferences_chats__chats">Gesprekken</string>
+  <string name="preferences_data_and_storage__manage_storage">Opslag beheren</string>
+  <string name="preferences_data_and_storage__calls">Oproepen</string>
+  <string name="preferences_data_and_storage__use_less_data_for_calls">Minder gegevensoverdracht bij oproepen</string>
+  <string name="preferences_data_and_storage__never">Nooit</string>
+  <string name="preferences_data_and_storage__wifi_and_cellular">Bij wifi en mobiele-gegevensoverdracht</string>
+  <string name="preferences_data_and_storage__cellular_only">Alleen bij mobiele-gegevensoverdracht</string>
+  <string name="preference_data_and_storage__using_less_data_may_improve_calls_on_bad_networks">Gebruik maken van minder gegevensoverdracht bij oproepen kan de kwaliteit van oproepen verbeteren</string>
   <string name="preferences_notifications__messages">Berichten</string>
   <string name="preferences_notifications__events">Gebeurtenissen</string>
   <string name="preferences_notifications__in_chat_sounds">Ook geluid voor geopened gesprek</string>
@@ -2147,7 +2190,7 @@ Signal zal nu toestemming vragen om je contactenlijst te lezen, om na te gaan wi
   <!--conversation_list_fragment-->
   <string name="conversation_list_fragment__fab_content_description">Nieuw gesprek</string>
   <string name="conversation_list_fragment__open_camera_description">Camera openen</string>
-  <string name="conversation_list_fragment__give_your_inbox_something_to_write_home_about_get_started_by_messaging_a_friend">Geef je postvak iets om over naar huis te schrijven. Begin door een vriend of kennis een bericht te zenden.</string>
+  <string name="conversation_list_fragment__no_chats_yet_get_started_by_messaging_a_friend">Nog geen gesprekken.\nBegin door een vriend of kennis een bericht te zenden.</string>
   <!--conversation_secure_verified-->
   <string name="conversation_secure_verified__menu_reset_secure_session">Beveiligde sessie opnieuw instellen</string>
   <!--conversation_muted-->
@@ -2184,8 +2227,6 @@ Signal zal nu toestemming vragen om je contactenlijst te lezen, om na te gaan wi
   <string name="verify_display_fragment_context_menu__copy_to_clipboard">Kopiëren naar klembord</string>
   <string name="verify_display_fragment_context_menu__compare_with_clipboard">Vergelijken met klembord</string>
   <!--reminder_header-->
-  <string name="reminder_header_sms_default_title">Als standaard sms-app gebruiken</string>
-  <string name="reminder_header_sms_default_text">Tik hier om van Signal je standaard sms-app te maken.</string>
   <string name="reminder_header_sms_import_title">Sms uit systeem importeren</string>
   <string name="reminder_header_sms_import_text">Tik hier om de sms-berichten uit je telefoon te kopiëren naar de versleutelde databank van Signal.</string>
   <string name="reminder_header_push_title">Signal-berichten en -oproepen inschakelen</string>
@@ -2194,7 +2235,7 @@ Signal zal nu toestemming vragen om je contactenlijst te lezen, om na te gaan wi
   <string name="reminder_header_invite_text">Stel aan %1$s voor om dit gesprek als beveiligd Signal-gesprek voort te zetten.</string>
   <string name="reminder_header_share_title">Nodig je vrienden uit!</string>
   <string name="reminder_header_share_text">Hoe meer mensen Signal gebruiken, des te vaker je beveiligd kunt communiceren.</string>
-  <string name="reminder_header_service_outage_text">Signal heeft technische problemen. We werken er hard aan om zo snel als mogelijk de dienst te hervatten.</string>
+  <string name="reminder_header_service_outage_text">Signal heeft technische problemen. We werken er hard aan om zo snel als mogelijk de bereikbaarheid te herstellen.</string>
   <string name="reminder_header_the_latest_signal_features_wont_work">De meest recente functionaliteit van Signal kan niet werken op deze versie van Android. Waardeer dit apparaat op naar een hogere versie van Android om in de toekomst nog updates te ontvangen voor Signal.</string>
   <string name="reminder_header_progress">%1$d%%</string>
   <!--media_preview-->
@@ -2215,7 +2256,7 @@ Signal zal nu toestemming vragen om je contactenlijst te lezen, om na te gaan wi
   <string name="Insights__percent">%</string>
   <string name="Insights__title">Inzichten</string>
   <string name="InsightsDashboardFragment__title">Inzichten</string>
-  <string name="InsightsDashboardFragment__signal_protocol_automatically_protected">%1$d%% van je verzonden berichten over de afgelopen %2$d werden automatisch beschermd door het Signal-protocol. Gesprekken tussen Signal-gebruikers zijn altijd eind-tot-eind-versleuteld.</string>
+  <string name="InsightsDashboardFragment__signal_protocol_automatically_protected">%1$d%% van je verzonden berichten over de afgelopen %2$d dagen werden automatisch beschermd door het Signal-protocol. Gesprekken tussen Signal-gebruikers zijn altijd eind-tot-eind-versleuteld.</string>
   <string name="InsightsDashboardFragment__boost_your_signal">Je kunt meer gesprekken beveiligd voeren</string>
   <string name="InsightsDashboardFragment__not_enough_data">Niet genoeg gegevens</string>
   <string name="InsightsDashboardFragment__your_insights_percentage_is_calculated_based_on">Je inzichten-percentage wordt berekend op basis van berichten welke je hebt verzonden in de afgelopen %1$d dagen welke niet zijn verlopen en niet handmatig zijn gewist.</string>
@@ -2381,6 +2422,7 @@ Signal zal nu toestemming vragen om je contactenlijst te lezen, om na te gaan wi
   <string name="BackupDialog_to_enable_backups_choose_a_folder">Kies een opslaglocatie om het maken van back-up-bestanden te kunnen inschakelen.</string>
   <string name="BackupDialog_choose_folder">Kies een map</string>
   <string name="BackupDialog_copied_to_clipboard">Gekopieerd naar klembord</string>
+  <string name="BackupDialog_no_file_picker_available">Er is geen bestandskiezer beschikbaar.</string>
   <string name="BackupDialog_enter_backup_passphrase_to_verify">Voer je back-up-wachtwoord in om deze te verifiëren</string>
   <string name="BackupDialog_verify">Verifiëren</string>
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Je hebt het juiste back-up-wachtwoord ingevoerd</string>
@@ -2551,8 +2593,9 @@ Signal zal nu toestemming vragen om je contactenlijst te lezen, om na te gaan wi
   <string name="CallParticipantsListUpdatePopupWindow__s_and_s_left">%1$s en %2$s hebben de oproep verlaten</string>
   <string name="CallParticipantsListUpdatePopupWindow__s_s_and_s_left">%1$s, %2$s en %3$s hebben de oproep verlaten</string>
   <string name="CallParticipantsListUpdatePopupWindow__s_s_and_d_others_left">%1$s, %2$s en %3$d andere hebben de oproep verlaten</string>
-  <string name="CallParticipantsListUpdatePopupWindow__you_on_another_device">Jij (vanaf een ander apparaat)</string>
-  <string name="CallParticipantsListUpdatePopupWindow__s_on_another_device">%1$s (vanaf een ander apparaat)</string>
+  <string name="CallParticipant__you">Jij</string>
+  <string name="CallParticipant__you_on_another_device">Jij (vanaf een ander apparaat)</string>
+  <string name="CallParticipant__s_on_another_device">%1$s (vanaf een ander apparaat)</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Als je al je gegevens wist:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Voer je telefoonnummer in</string>
@@ -2569,5 +2612,7 @@ Signal zal nu toestemming vragen om je contactenlijst te lezen, om na te gaan wi
   <string name="DeleteAccountFragment__launch_app_settings">App-instellingen openen</string>
   <!--DeleteAccountCountryPickerFragment-->
   <string name="DeleteAccountCountryPickerFragment__search_countries">Land zoeken</string>
+  <!--CreateGroupActivity-->
+  <string name="CreateGroupActivity__skip">Overslaan</string>
   <!--EOF-->
 </resources>
