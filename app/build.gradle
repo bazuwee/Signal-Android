@@ -8,6 +8,7 @@ apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'witness'
 apply from: 'translations.gradle'
 apply from: 'witness-verifications.gradle'
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 
 repositories {
     maven {
@@ -61,8 +62,8 @@ protobuf {
     }
 }
 
-def canonicalVersionCode = 772
-def canonicalVersionName = "5.2.3"
+def canonicalVersionCode = 16
+def canonicalVersionName = "1.1.1"
 
 def postFixSize = 100
 def abiPostFix = ['universal'   : 0,
@@ -96,6 +97,7 @@ android {
     }
 
     defaultConfig {
+        applicationId = 'com.bharatiplus'
         versionCode canonicalVersionCode * postFixSize
         versionName canonicalVersionName
 
@@ -145,6 +147,11 @@ android {
         }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                onesignal_app_id: '8bef4e44-eddd-4476-9599-d8c2268666a2',
+                // Project number pulled from dashboard, local value is ignored.
+                onesignal_google_project_number: 'REMOTE'
+        ]
     }
 
     compileOptions {
@@ -318,11 +325,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
     implementation 'com.google.firebase:firebase-ml-vision-face-model:20.0.1'
 
+    implementation 'com.google.firebase:firebase-analytics:17.4.3'
     implementation ('com.google.firebase:firebase-messaging:20.2.0') {
-        exclude group: 'com.google.firebase', module: 'firebase-core'
-        exclude group: 'com.google.firebase', module: 'firebase-analytics'
         exclude group: 'com.google.firebase', module: 'firebase-measurement-connector'
     }
+
+    implementation 'com.onesignal:OneSignal:[3.0.0, 3.99.99]'
+    implementation 'com.facebook.android:audience-network-sdk:6.2.0'
 
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'

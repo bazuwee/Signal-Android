@@ -450,7 +450,7 @@ public class NotificationChannels {
     NotificationChannel failures     = new NotificationChannel(FAILURES, context.getString(R.string.NotificationChannel_failures), NotificationManager.IMPORTANCE_HIGH);
     NotificationChannel backups      = new NotificationChannel(BACKUPS, context.getString(R.string.NotificationChannel_backups), NotificationManager.IMPORTANCE_LOW);
     NotificationChannel lockedStatus = new NotificationChannel(LOCKED_STATUS, context.getString(R.string.NotificationChannel_locked_status), NotificationManager.IMPORTANCE_LOW);
-    NotificationChannel other        = new NotificationChannel(OTHER, context.getString(R.string.NotificationChannel_other), NotificationManager.IMPORTANCE_LOW);
+    NotificationChannel other        = new NotificationChannel(OTHER, context.getString(R.string.MessageRetrievalService_background_connection_enabled), NotificationManager.IMPORTANCE_LOW);
     NotificationChannel voiceNotes   = new NotificationChannel(VOICE_NOTES, context.getString(R.string.NotificationChannel_voice_notes), NotificationManager.IMPORTANCE_LOW);
 
     messages.setGroup(CATEGORY_MESSAGES);

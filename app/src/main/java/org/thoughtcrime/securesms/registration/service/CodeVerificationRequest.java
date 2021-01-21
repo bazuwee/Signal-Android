@@ -215,7 +215,7 @@ public final class CodeVerificationRequest {
     VerifyAccountResponse response = accountManager.verifyAccountWithCode(code,
                                                                           null,
                                                                           registrationId,
-                                                                          !hasFcm,
+                                                                          hasFcm,
                                                                           registrationLockV1,
                                                                           registrationLockV2,
                                                                           unidentifiedAccessKey,
@@ -233,7 +233,7 @@ public final class CodeVerificationRequest {
     accountManager = AccountManagerFactory.createAuthenticated(context, uuid, credentials.getE164number(), credentials.getPassword());
     accountManager.setPreKeys(identityKey.getPublicKey(), signedPreKey, records);
 
-    if (hasFcm) {
+    if (!hasFcm) {
       accountManager.setGcmId(Optional.fromNullable(fcmToken));
     }
 
@@ -249,7 +249,7 @@ public final class CodeVerificationRequest {
     ApplicationDependencies.getRecipientCache().clearSelf();
 
     TextSecurePreferences.setFcmToken(context, fcmToken);
-    TextSecurePreferences.setFcmDisabled(context, !hasFcm);
+    TextSecurePreferences.setFcmDisabled(context, true);
     TextSecurePreferences.setWebsocketRegistered(context, true);
 
     DatabaseFactory.getIdentityDatabase(context)

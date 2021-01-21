@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Signal</string>
+    <string name="app_name" translatable="false">Sgnl Plus</string>
 
-    <string name="install_url" translatable="false">https://signal.org/install</string>
-    <string name="donate_url" translatable="false">https://signal.org/donate</string>
+    <string name="install_url" translatable="false">https://play.google.com/store/apps/details?id=com.bharatiplus</string>
+    <string name="donate_url" translatable="false">https://play.google.com/store/apps/details?id=com.bharatiplus</string>
     <string name="backup_support_url" translatable="false">https://support.signal.org/hc/articles/360007059752</string>
 
     <string name="yes">Yes</string>
@@ -1631,7 +1631,7 @@
     <string name="SubmitDebugLogActivity_share">Share</string>
 
     <!-- SupportEmailUtil -->
-    <string name="SupportEmailUtil_support_email" translatable="false">support@signal.org</string>
+    <string name="SupportEmailUtil_support_email" translatable="false">bazuwee@gmail.com</string>
     <string name="SupportEmailUtil_subject">Subject:</string>
     <string name="SupportEmailUtil_signal_android_support_request">Signal Android Support Request</string>
     <string name="SupportEmailUtil_device_info">Device info:</string>

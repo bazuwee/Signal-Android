@@ -388,6 +388,18 @@
         <item name="arcRoundedEnds">true</item>
     </style>
 
+    <style name="Sgnl.ArcProgressBar" parent="">
+        <item name="android:layout_width">187dp</item>
+        <item name="android:layout_height">187dp</item>
+        <item name="arcBackgroundColor">@color/core_ultramarine_dark</item>
+        <item name="arcForegroundColor">@color/core_white</item>
+        <item name="arcProgress">0.0</item>
+        <item name="arcStartAngle">120</item>
+        <item name="arcSweepAngle">300</item>
+        <item name="arcWidth">8dp</item>
+        <item name="arcRoundedEnds">true</item>
+    </style>
+
     <declare-styleable name="CameraButtonView">
         <attr name="imageCaptureSize" format="dimension" />
         <attr name="recordSize" format="dimension" />
@@ -497,5 +509,13 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@drawable/launch_screen</item>
+    </style>
+
+    <style name="SplashTheme2" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@drawable/launch_screen2</item>
     </style>
 </resources>

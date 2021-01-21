@@ -12,6 +12,7 @@
 
     <Preference android:key="preference_category_sms_mms"
                 android:title="@string/preferences__sms_mms"
+                app:isPreferenceVisible="false"
                 android:icon="@drawable/ic_message_tinted_bitmap_24"/>
 
     <Preference android:key="preference_category_notifications"
@@ -49,6 +50,7 @@
     <Preference android:key="preference_category_donate"
                 android:title="@string/preferences__donate_to_signal"
                 android:icon="@drawable/ic_heart_24"
+                app:isPreferenceVisible="false"
                 android:widgetLayout="@layout/donate_preference_widget" />
 
 </PreferenceScreen>

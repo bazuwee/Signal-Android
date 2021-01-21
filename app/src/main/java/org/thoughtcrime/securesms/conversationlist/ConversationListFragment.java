@@ -37,6 +37,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -66,6 +67,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.annimon.stream.Stream;
 import com.google.android.material.snackbar.Snackbar;
+
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdSettings;
+import com.facebook.ads.MediaView;
+import com.facebook.ads.NativeAdLayout;
+import com.facebook.ads.NativeAdListener;
+import com.facebook.ads.NativeBannerAd;
+import com.facebook.ads.NativeBannerAdView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -172,6 +182,8 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   private SnapToTopDataObserver             snapToTopDataObserver;
   private Drawable                          archiveDrawable;
   private LifecycleObserver                 visibilityLifecycleObserver;
+  private NativeAdLayout                    nativeAdLayout;
+  private NativeBannerAd                    nativeBannerAd;
 
   private Stopwatch startupStopwatch;
 
@@ -203,6 +215,53 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     emptyState         = new Stub<>(view.findViewById(R.id.empty_state));
     searchToolbar      = new Stub<>(view.findViewById(R.id.search_toolbar));
     megaphoneContainer = new Stub<>(view.findViewById(R.id.megaphone_container));
+
+    if (getContext() != null) {
+      nativeBannerAd = new NativeBannerAd(getContext(), "269542431250639_269544927917056");
+      NativeAdListener nativeAdListener = new NativeAdListener() {
+        @Override
+        public void onMediaDownloaded(Ad ad) {
+          // Native ad finished downloading all assets
+          //Log.e(TAG, "Native ad finished downloading all assets.");
+        }
+
+        @Override
+        public void onError(Ad ad, AdError adError) {
+          Log.e(TAG, "Ad failed to load: " + adError.getErrorCode());
+          // Native ad failed to load
+          //Log.e(TAG, "Native ad failed to load: " + adError.getErrorMessage());
+        }
+
+        @Override
+        public void onAdLoaded(Ad ad) {
+          // Native ad is loaded and ready to be displayed
+          //Log.d(TAG, "Native ad is loaded and ready to be displayed!");
+
+          if (nativeBannerAd == null || nativeBannerAd != ad) {
+            return;
+          }
+          // Inflate Native Banner Ad into Container
+          inflateAd(view, nativeBannerAd);
+        }
+
+        @Override
+        public void onAdClicked(Ad ad) {
+          // Native ad clicked
+          //Log.d(TAG, "Native ad clicked!");
+        }
+
+        @Override
+        public void onLoggingImpression(Ad ad) {
+          // Native ad impression
+          //Log.d(TAG, "Native ad impression logged!");
+        }
+      };
+      // load the ad
+      nativeBannerAd.loadAd(
+              nativeBannerAd.buildLoadAdConfig()
+                      .withAdListener(nativeAdListener)
+                      .build());
+    }
 
     Toolbar toolbar = getToolbar(view);
     toolbar.setVisibility(View.VISIBLE);
@@ -418,6 +477,20 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   @Override
   public void onMegaphoneDialogFragmentRequested(@NonNull DialogFragment dialogFragment) {
     dialogFragment.show(getChildFragmentManager(), "megaphone_dialog");
+  }
+
+  private void inflateAd(View rootView, NativeBannerAd nativeBannerAd) {
+
+    if (getContext() == null)
+      return;
+
+    nativeBannerAd.unregisterView();
+    View adView = NativeBannerAdView.render(getContext(), nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
+    nativeAdLayout = rootView.findViewById(R.id.native_banner_ad_container);
+    MediaView nativeAdIcon = adView.findViewById(R.id.native_ad_icon);
+    Button nativeAdCallToAction = adView.findViewById(R.id.native_ad_call_to_action);
+    // Add the Native Banner Ad View to your ad container
+    nativeAdLayout.addView(adView);
   }
 
   private void initializeReminderView() {

@@ -61,7 +61,7 @@ public class CallMeCountDownView extends androidx.appcompat.widget.AppCompatButt
         listener.onRemaining(this, totalRemainingSeconds);
       }
 
-      postDelayed(this::updateCountDown, 250);
+      postDelayed(this::updateCountDown, 100);
     } else {
       setCallEnabled();
     }

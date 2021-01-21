@@ -19,6 +19,7 @@ package org.thoughtcrime.securesms;
 import android.content.Context;
 import android.hardware.SensorManager;
 import android.os.Build;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,6 +31,9 @@ import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.multidex.MultiDexApplication;
 
 import com.google.android.gms.security.ProviderInstaller;
+import com.google.android.gms.security.ProviderInstaller;
+import com.facebook.ads.AudienceNetworkAds;
+import com.onesignal.OneSignal;
 
 import org.conscrypt.Conscrypt;
 import org.signal.aesgcmprovider.AesGcmProvider;
@@ -52,6 +56,7 @@ import org.thoughtcrime.securesms.jobs.FcmRefreshJob;
 import org.thoughtcrime.securesms.jobs.GroupV1MigrationJob;
 import org.thoughtcrime.securesms.jobs.MultiDeviceContactUpdateJob;
 import org.thoughtcrime.securesms.jobs.PushNotificationReceiveJob;
+import org.thoughtcrime.securesms.jobs.RefreshAttributesJob;
 import org.thoughtcrime.securesms.jobs.RefreshPreKeysJob;
 import org.thoughtcrime.securesms.jobs.RetrieveProfileJob;
 import org.thoughtcrime.securesms.keyvalue.SignalStore;
@@ -84,7 +89,10 @@ import org.thoughtcrime.securesms.util.dynamiclanguage.DynamicLanguageContextWra
 import org.webrtc.voiceengine.WebRtcAudioManager;
 import org.webrtc.voiceengine.WebRtcAudioUtils;
 import org.whispersystems.libsignal.logging.SignalProtocolLoggerProvider;
+import org.whispersystems.libsignal.util.guava.Optional;
+import org.whispersystems.signalservice.api.SignalServiceAccountManager;
 
+import java.io.IOException;
 import java.security.Security;
 import java.util.HashSet;
 import java.util.Set;
@@ -154,6 +162,7 @@ public class ApplicationContext extends MultiDexApplication implements DefaultLi
                             .addNonBlocking(this::initializeCleanup)
                             .addNonBlocking(this::initializeGlideCodecs)
                             .addNonBlocking(FeatureFlags::init)
+                            .addNonBlocking(this::initializeFacebookAds)
                             .addNonBlocking(RefreshPreKeysJob::scheduleIfNecessary)
                             .addNonBlocking(StorageSyncHelper::scheduleRoutineSync)
                             .addNonBlocking(() -> ApplicationDependencies.getJobManager().beginJobLoop())
@@ -161,6 +170,11 @@ public class ApplicationContext extends MultiDexApplication implements DefaultLi
                             .addPostRender(this::initializeBlobProvider)
                             .addPostRender(() -> NotificationChannels.create(this))
                             .execute();
+
+    OneSignal.startInit(this)
+            .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+            .unsubscribeWhenNotificationsAreDisabled(true)
+            .init();
 
     ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
 
@@ -225,6 +239,11 @@ public class ApplicationContext extends MultiDexApplication implements DefaultLi
       Log.w(TAG, "Build expired!");
       SignalStore.misc().markClientDeprecated();
     }
+  }
+
+  private void initializeFacebookAds(){
+
+    AudienceNetworkAds.initialize(this);
   }
 
   private void initializeSecurityProvider() {
