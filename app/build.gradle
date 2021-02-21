@@ -63,8 +63,8 @@ protobuf {
 }
 
 
-def canonicalVersionCode = 16
-def canonicalVersionName = "1.1.1"
+def canonicalVersionCode = 20
+def canonicalVersionName = "1.2.0"
 
 def postFixSize = 100
 def abiPostFix = ['universal'   : 0,
@@ -327,10 +327,13 @@ dependencies {
     }
 
     implementation 'com.onesignal:OneSignal:[3.0.0, 3.99.99]'
-    implementation 'com.facebook.android:audience-network-sdk:6.2.0'
+    implementation project(':nativetemplates')
+    implementation 'com.google.ads.mediation:facebook:5.11.0.0'
 
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
+    implementation 'com.google.android.gms:play-services-ads:19.2.0'
+    implementation 'com.google.ads.mediation:mopub:5.13.1.0'
 
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.1'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.9.1'

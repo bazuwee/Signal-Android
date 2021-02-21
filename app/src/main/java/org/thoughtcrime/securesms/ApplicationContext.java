@@ -26,9 +26,8 @@ import androidx.annotation.WorkerThread;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.multidex.MultiDexApplication;
 
+import com.google.android.gms.ads.initialization.AdapterStatus;
 import com.google.android.gms.security.ProviderInstaller;
-import com.google.android.gms.security.ProviderInstaller;
-import com.facebook.ads.AudienceNetworkAds;
 import com.onesignal.OneSignal;
 
 import org.conscrypt.Conscrypt;
@@ -87,9 +86,15 @@ import org.whispersystems.libsignal.logging.SignalProtocolLoggerProvider;
 import org.whispersystems.libsignal.util.guava.Optional;
 import org.whispersystems.signalservice.api.SignalServiceAccountManager;
 
+// Google AdmobSDK
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.io.IOException;
 import java.security.Security;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -162,7 +167,7 @@ public class ApplicationContext extends MultiDexApplication implements AppForegr
                             .addNonBlocking(this::initializeCleanup)
                             .addNonBlocking(this::initializeGlideCodecs)
                             .addNonBlocking(FeatureFlags::init)
-                            .addNonBlocking(this::initializeFacebookAds)
+                            .addNonBlocking(this::initializeGoogleAdmobSDK)
                             .addNonBlocking(RefreshPreKeysJob::scheduleIfNecessary)
                             .addNonBlocking(StorageSyncHelper::scheduleRoutineSync)
                             .addNonBlocking(() -> ApplicationDependencies.getJobManager().beginJobLoop())
@@ -175,8 +180,6 @@ public class ApplicationContext extends MultiDexApplication implements AppForegr
             .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
             .unsubscribeWhenNotificationsAreDisabled(true)
             .init();
-
-    ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
     Log.d(TAG, "onCreate() took " + (System.currentTimeMillis() - startTime) + " ms");
     Tracer.getInstance().end("Application#onCreate()");
   }
@@ -234,9 +237,19 @@ public class ApplicationContext extends MultiDexApplication implements AppForegr
     }
   }
 
-  private void initializeFacebookAds(){
+  private void initializeGoogleAdmobSDK(){
+    MobileAds.initialize (this, new OnInitializationCompleteListener() {
+      @Override
+      public void onInitializationComplete( InitializationStatus initializationStatus ) {
+        Log.w(TAG, "AdMob Sdk Initialized: "+ initializationStatus);
 
-    AudienceNetworkAds.initialize(this);
+        Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
+        for (String adapterClass : statusMap.keySet()) {
+          AdapterStatus status = statusMap.get(adapterClass);
+        }
+      }
+    });
+
   }
 
   private void initializeSecurityProvider() {

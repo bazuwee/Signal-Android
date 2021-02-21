@@ -5,6 +5,10 @@
     <string name="install_url" translatable="false">https://play.google.com/store/apps/details?id=com.bharatiplus</string>
     <string name="donate_url" translatable="false">https://play.google.com/store/apps/details?id=com.bharatiplus</string>
     <string name="backup_support_url" translatable="false">https://support.signal.org/hc/articles/360007059752</string>
+    <string name="advertisement" translatable="false">Ad</string>
+    <!-- AdMob Ids-->
+    <string name="admob_app_id" translatable="false">ca-app-pub-6991932537186982~6982815322</string>
+    <string name="admob_native_ad_id" translatable="false">ca-app-pub-6991932537186982/9269835807</string>
 
     <string name="yes">Yes</string>
     <string name="no">No</string>

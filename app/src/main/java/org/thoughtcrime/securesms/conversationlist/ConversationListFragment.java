@@ -38,6 +38,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,6 +55,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.TooltipCompat;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.DefaultLifecycleObserver;
@@ -64,17 +66,20 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+//Google Mediation
 import com.annimon.stream.Stream;
+import com.google.ads.mediation.facebook.FacebookAdapter;
+import com.google.ads.mediation.facebook.FacebookExtras;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.VideoOptions;
+import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.material.snackbar.Snackbar;
 
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdSettings;
-import com.facebook.ads.MediaView;
-import com.facebook.ads.NativeAdLayout;
-import com.facebook.ads.NativeAdListener;
-import com.facebook.ads.NativeBannerAd;
-import com.facebook.ads.NativeBannerAdView;
+// important library for Google adMob
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
+import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -151,6 +156,8 @@ import java.util.Objects;
 import java.util.Set;
 
 import static android.app.Activity.RESULT_OK;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 
 public class ConversationListFragment extends MainFragment implements ActionMode.Callback,
@@ -185,11 +192,12 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   private Stub<ViewGroup>                   megaphoneContainer;
   private SnapToTopDataObserver             snapToTopDataObserver;
   private Drawable                          archiveDrawable;
-  private LifecycleObserver                 visibilityLifecycleObserver;
-  private NativeAdLayout                    nativeAdLayout;
-  private NativeBannerAd                    nativeBannerAd;
   private AppForegroundObserver.Listener    appForegroundObserver;
-  private Stopwatch startupStopwatch;
+  private Stopwatch                         startupStopwatch;
+
+  //Google Admob
+  private UnifiedNativeAd nativeAd;
+  private FrameLayout nativeAdPlaceholder;
 
   public static ConversationListFragment newInstance() {
     return new ConversationListFragment();
@@ -216,60 +224,18 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     searchAction       = view.findViewById(R.id.search_action);
     toolbarShadow      = view.findViewById(R.id.conversation_list_toolbar_shadow);
     proxyStatus        = view.findViewById(R.id.conversation_list_proxy_status);
+    //Google Admob
+    nativeAdPlaceholder = view.findViewById(R.id.fl_adplaceholder);
+
     reminderView       = new Stub<>(view.findViewById(R.id.reminder));
     emptyState         = new Stub<>(view.findViewById(R.id.empty_state));
     searchToolbar      = new Stub<>(view.findViewById(R.id.search_toolbar));
     megaphoneContainer = new Stub<>(view.findViewById(R.id.megaphone_container));
 
-    if (getContext() != null) {
-      nativeBannerAd = new NativeBannerAd(getContext(), "269542431250639_269544927917056");
-      NativeAdListener nativeAdListener = new NativeAdListener() {
-        @Override
-        public void onMediaDownloaded(Ad ad) {
-          // Native ad finished downloading all assets
-          //Log.e(TAG, "Native ad finished downloading all assets.");
-        }
 
-        @Override
-        public void onError(Ad ad, AdError adError) {
-          Log.e(TAG, "Ad failed to load: " + adError.getErrorCode());
-          // Native ad failed to load
-          //Log.e(TAG, "Native ad failed to load: " + adError.getErrorMessage());
-        }
-
-        @Override
-        public void onAdLoaded(Ad ad) {
-          // Native ad is loaded and ready to be displayed
-          //Log.d(TAG, "Native ad is loaded and ready to be displayed!");
-
-          if (nativeBannerAd == null || nativeBannerAd != ad) {
-            return;
-          }
-          // Inflate Native Banner Ad into Container
-          inflateAd(view, nativeBannerAd);
-        }
-
-        @Override
-        public void onAdClicked(Ad ad) {
-          // Native ad clicked
-          //Log.d(TAG, "Native ad clicked!");
-        }
-
-        @Override
-        public void onLoggingImpression(Ad ad) {
-          // Native ad impression
-          //Log.d(TAG, "Native ad impression logged!");
-        }
-      };
-      // load the ad
-      nativeBannerAd.loadAd(
-              nativeBannerAd.buildLoadAdConfig()
-                      .withAdListener(nativeAdListener)
-                      .build());
-    }
 
     Toolbar toolbar = getToolbar(view);
-    toolbar.setVisibility(View.VISIBLE);
+    toolbar.setVisibility(VISIBLE);
     ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
 
     proxyStatus.setOnClickListener(v -> onProxyStatusClicked());
@@ -305,6 +271,16 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     RatingManager.showRatingDialogIfNecessary(requireContext());
 
     TooltipCompat.setTooltipText(searchAction, getText(R.string.SearchToolbar_search_for_conversations_contacts_and_messages));
+
+    //Google Admob
+    if (isAdded()) {
+      UnifiedNativeAdView adView = (UnifiedNativeAdView) getLayoutInflater()
+              .inflate(R.layout.ad_unified, null);
+      nativeAdPlaceholder.removeAllViews();
+      nativeAdPlaceholder.addView(adView);
+
+      refreshAd();
+    }
   }
 
   @Override
@@ -488,19 +464,124 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     dialogFragment.show(getChildFragmentManager(), "megaphone_dialog");
   }
 
-  private void inflateAd(View rootView, NativeBannerAd nativeBannerAd) {
+  /**
+   * Google Admob
+   * Populates a {@link UnifiedNativeAdView} object with data from a given
+   * {@link UnifiedNativeAd}.
+   *
+   * @param nativeAd the object containing the ad's assets
+   * @param adView          the view to be populated
+   */
+  private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {
+    // Set other ad assets.
+    adView.setBodyView(adView.findViewById(R.id.ad_body));
+    adView.setCallToActionView(adView.findViewById(R.id.ad_call_to_action));
+    adView.setIconView(adView.findViewById(R.id.ad_app_icon));
+    adView.setAdvertiserView(adView.findViewById(R.id.ad_advertiser));
 
-    if (getContext() == null)
-      return;
 
-    nativeBannerAd.unregisterView();
-    View adView = NativeBannerAdView.render(getContext(), nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
-    nativeAdLayout = rootView.findViewById(R.id.native_banner_ad_container);
-    MediaView nativeAdIcon = adView.findViewById(R.id.native_ad_icon);
-    Button nativeAdCallToAction = adView.findViewById(R.id.native_ad_call_to_action);
-    // Add the Native Banner Ad View to your ad container
-    nativeAdLayout.addView(adView);
+    // These assets aren't guaranteed to be in every UnifiedNativeAd, so it's important to
+    // check before trying to display them.
+    if (nativeAd.getBody() == null) {
+      adView.getBodyView().setVisibility(View.INVISIBLE);
+    } else {
+      adView.getBodyView().setVisibility(View.VISIBLE);
+      ((TextView) adView.getBodyView()).setText(nativeAd.getBody());
+    }
+
+    if (nativeAd.getCallToAction() == null) {
+      adView.getCallToActionView().setVisibility(View.INVISIBLE);
+    } else {
+      adView.getCallToActionView().setVisibility(View.VISIBLE);
+      ((Button) adView.getCallToActionView()).setText(nativeAd.getCallToAction());
+    }
+
+    if (nativeAd.getIcon() == null) {
+      adView.getIconView().setVisibility(View.GONE);
+    } else {
+      ((ImageView) adView.getIconView()).setImageDrawable(
+              nativeAd.getIcon().getDrawable());
+      adView.getIconView().setVisibility(View.VISIBLE);
+    }
+
+    if (nativeAd.getAdvertiser() == null) {
+      adView.getAdvertiserView().setVisibility(View.INVISIBLE);
+    } else {
+      ((TextView) adView.getAdvertiserView()).setText(nativeAd.getAdvertiser());
+      adView.getAdvertiserView().setVisibility(View.VISIBLE);
+    }
+
+    // This method tells the Google Mobile Ads SDK that you have finished populating your
+    // native ad view with this native ad.
+    adView.setNativeAd(nativeAd);
+
   }
+
+  /**
+   * Creates a request for a new native ad based on the boolean parameters and calls the
+   * corresponding "populate" method when one is successfully returned.
+   *
+   */
+  private void refreshAd() {
+
+    AdLoader.Builder builder = new AdLoader.Builder(getActivity(), getString(R.string.admob_native_ad_id));
+    Bundle extras = new FacebookExtras()
+            .setNativeBanner(true)
+            .build();
+
+    builder.forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+      // OnUnifiedNativeAdLoadedListener implementation.
+      @Override
+      public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+        // You must call destroy on old ads when you are done with them,
+        // otherwise you will have a memory leak.
+        if (nativeAd != null) {
+          nativeAd.destroy();
+        }
+        nativeAd = unifiedNativeAd;
+
+        if (isAdded()) {
+          UnifiedNativeAdView adView = (UnifiedNativeAdView) getLayoutInflater()
+                  .inflate(R.layout.ad_unified, null);
+          populateUnifiedNativeAdView(unifiedNativeAd, adView);
+          nativeAdPlaceholder.removeAllViews();
+          nativeAdPlaceholder.addView(adView);
+        }
+      }
+
+    });
+
+    VideoOptions videoOptions = new VideoOptions.Builder()
+            .build();
+
+    NativeAdOptions adOptions = new NativeAdOptions.Builder()
+            .setVideoOptions(videoOptions)
+            .build();
+
+    builder.withNativeAdOptions(adOptions);
+
+    AdLoader adLoader = builder.withAdListener(new AdListener() {
+      @Override
+      public void onAdFailedToLoad(int errorCode) {
+
+        Log.i(TAG, "Ad failed to load: " + errorCode);
+      }
+    }).build();
+
+    adLoader.loadAd(new AdRequest.Builder().addNetworkExtrasBundle(FacebookAdapter.class, extras).build());
+
+
+  }
+
+  @Override
+  public void onDestroy() {
+    if (nativeAd != null) {
+      nativeAd.destroy();
+    }
+    super.onDestroy();
+  }
+
+
 
   private void initializeReminderView() {
     reminderView.get().setOnDismissListener(this::updateReminders);
@@ -644,16 +725,16 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 
     if (result.isEmpty() && activeAdapter == searchAdapter) {
       searchEmptyState.setText(getString(R.string.SearchFragment_no_results, result.getQuery()));
-      searchEmptyState.setVisibility(View.VISIBLE);
+      searchEmptyState.setVisibility(VISIBLE);
     } else {
-      searchEmptyState.setVisibility(View.GONE);
+      searchEmptyState.setVisibility(GONE);
     }
   }
 
   private void onMegaphoneChanged(@Nullable Megaphone megaphone) {
     if (megaphone == null) {
       if (megaphoneContainer.resolved()) {
-        megaphoneContainer.get().setVisibility(View.GONE);
+        megaphoneContainer.get().setVisibility(GONE);
         megaphoneContainer.get().removeAllViews();
       }
       return;
@@ -665,9 +746,9 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 
     if (view != null) {
       megaphoneContainer.get().addView(view);
-      megaphoneContainer.get().setVisibility(View.VISIBLE);
+      megaphoneContainer.get().setVisibility(VISIBLE);
     } else {
-      megaphoneContainer.get().setVisibility(View.GONE);
+      megaphoneContainer.get().setVisibility(GONE);
 
       if (megaphone.getOnVisibleListener() != null) {
         megaphone.getOnVisibleListener().onEvent(megaphone, this);
@@ -925,26 +1006,26 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     if (isConversationEmpty) {
       Log.i(TAG, "Received an empty data set.");
       list.setVisibility(View.INVISIBLE);
-      emptyState.get().setVisibility(View.VISIBLE);
+      emptyState.get().setVisibility(VISIBLE);
       fab.startPulse(3 * 1000);
       cameraFab.startPulse(3 * 1000);
 
       SignalStore.onboarding().setShowNewGroup(true);
       SignalStore.onboarding().setShowInviteFriends(true);
     } else {
-      list.setVisibility(View.VISIBLE);
+      list.setVisibility(VISIBLE);
       fab.stopPulse();
       cameraFab.stopPulse();
 
       if (emptyState.resolved()) {
-        emptyState.get().setVisibility(View.GONE);
+        emptyState.get().setVisibility(GONE);
       }
     }
   }
 
   private void updateProxyStatus(@NonNull PipeConnectivityListener.State state) {
     if (SignalStore.proxy().isProxyEnabled()) {
-      proxyStatus.setVisibility(View.VISIBLE);
+      proxyStatus.setVisibility(VISIBLE);
 
       switch (state) {
         case CONNECTING:
@@ -959,7 +1040,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
           break;
       }
     } else {
-      proxyStatus.setVisibility(View.GONE);
+      proxyStatus.setVisibility(GONE);
     }
   }
 
@@ -1253,11 +1334,11 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     @Override
     public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
       if (recyclerView.canScrollVertically(-1)) {
-        if (toolbarShadow.getVisibility() != View.VISIBLE) {
+        if (toolbarShadow.getVisibility() != VISIBLE) {
           ViewUtil.fadeIn(toolbarShadow, 250);
         }
       } else {
-        if (toolbarShadow.getVisibility() != View.GONE) {
+        if (toolbarShadow.getVisibility() != GONE) {
           ViewUtil.fadeOut(toolbarShadow, 250);
         }
       }
