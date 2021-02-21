@@ -62,7 +62,6 @@ protobuf {
     }
 }
 
-
 def canonicalVersionCode = 20
 def canonicalVersionName = "1.2.0"
 
