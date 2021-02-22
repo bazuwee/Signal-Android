@@ -102,7 +102,7 @@
                     android:textAllCaps="true"
                     android:text="@string/ConversationListFragment_loading"
                     android:textColor="@color/signal_text_primary"
-                    android:textSize="11sp" />
+                    android:textSize="10sp" />
 
             </LinearLayout>
         </LinearLayout>
