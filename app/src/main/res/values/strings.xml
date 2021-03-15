@@ -10,6 +10,16 @@
     <string name="admob_app_id" translatable="false">ca-app-pub-6991932537186982~6982815322</string>
     <string name="admob_native_ad_id" translatable="false">ca-app-pub-6991932537186982/9269835807</string>
 
+    <!-- Keep messages -->
+    <string name="preferences_chats__control_message_deletion">Control message deletion</string>
+    <string name="preferences_chats__chat_keep_view_once_messages">Keep view-once media</string>
+    <string name="preferences_chats__keep_view_once_messages_summary">When checked incoming view-once media will be treated as normal view-always media and will not be deleted after view</string>
+    <string name="preferences_chats__chat_ignore_remote_delete">Ignore remote delete</string>
+    <string name="preferences_chats__chat_ignore_remote_delete_summary">When checked, this option prevents the remote deletion of messages by the sender</string>
+    <string name="preferences_chats__delete_media_only">Delete media only</string>
+    <string name="preferences_chats__delete_media_only_summary">Delete only media, not the message itself, when media is deleted in the All media screen</string>
+    <!--backup location-->
+
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="delete">Delete</string>

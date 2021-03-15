@@ -48,4 +48,26 @@
                 android:title="@string/preferences_chats__chat_backups" />
     </PreferenceCategory>
 
+
+    <!-- JW: add options to disable view once messages and remote delete -->
+    <PreferenceCategory android:layout="@layout/preference_divider"/>
+
+    <PreferenceCategory android:layout="@layout/preference_divider"/>
+
+    <PreferenceCategory android:title="@string/preferences_chats__control_message_deletion">
+        <org.thoughtcrime.securesms.components.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="pref_keep_view_once_messages"
+            android:title="@string/preferences_chats__chat_keep_view_once_messages"
+            android:summary="@string/preferences_chats__keep_view_once_messages_summary" />
+
+        <org.thoughtcrime.securesms.components.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="pref_ignore_remote_delete"
+            android:title="@string/preferences_chats__chat_ignore_remote_delete"
+            android:summary="@string/preferences_chats__chat_ignore_remote_delete_summary" />
+
+    </PreferenceCategory>
+
+
 </PreferenceScreen>
