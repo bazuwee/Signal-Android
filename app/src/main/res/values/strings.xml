@@ -8,8 +8,8 @@
 
     <string name="advertisement" translatable="false">Ad</string>
     <!-- AdMob Ids-->
-    <string name="admob_app_id" translatable="false">ca-app-pub-6991932537186982~6982815322</string>
-    <string name="admob_native_ad_id" translatable="false">ca-app-pub-6991932537186982/9269835807</string>
+    <string name="admob_app_id" translatable="false">ca-app-pub-4463790346102797~2716087046</string>
+    <string name="admob_native_ad_id" translatable="false">ca-app-pub-4463790346102797/3420865874</string>
 
     <!-- Keep messages -->
     <string name="preferences_chats__control_message_deletion">Control message deletion</string>
@@ -1572,7 +1572,7 @@
     <string name="SubmitDebugLogActivity_share">Share</string>
 
     <!-- SupportEmailUtil -->
-    <string name="SupportEmailUtil_support_email" translatable="false">bazuwee@gmail.com</string>
+    <string name="SupportEmailUtil_support_email" translatable="false">support@signal.org</string>
     <string name="SupportEmailUtil_subject">Subject:</string>
     <string name="SupportEmailUtil_signal_android_support_request">Signal Android Support Request</string>
     <string name="SupportEmailUtil_filter">Filter:</string>
